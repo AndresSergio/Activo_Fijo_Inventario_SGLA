@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\IngresoCompraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('ingresocompra', 'IngresoCompraController');

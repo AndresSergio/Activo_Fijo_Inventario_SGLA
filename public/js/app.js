@@ -49957,8 +49957,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\probando\Activo_Fijo_Inventario_SGLA\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\probando\Activo_Fijo_Inventario_SGLA\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\USUARIO\Desktop\Activo_Fijo_Inventario_SGLA\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\USUARIO\Desktop\Activo_Fijo_Inventario_SGLA\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
