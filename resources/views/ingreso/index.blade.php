@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('content')
+@section('contenido')
 
 @section('title', 'Ingreso por Compra')
 
     <div class="row">
-        <div class="col">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Ingreso por Compra
-                    {{-- <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/empresas/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.empresa.actions.create') }}</a> --}}
+                    <i class="fa fa-align-justify"></i> Ingreso por Compra &nbsp;
+                    <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('ingresocompra/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; Nuevo Ingreso</a>
                 </div>
                 <div class="card-body" v-cloak>
                     <div class="card-block">

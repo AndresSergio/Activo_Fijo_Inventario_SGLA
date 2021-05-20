@@ -26,6 +26,7 @@ class IngresoCompraController extends Controller
     public function create()
     {
         //
+        return view('ingreso.create');
     }
 
     /**

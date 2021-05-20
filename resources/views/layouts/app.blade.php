@@ -1,17 +1,16 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Activo Fijo') }}</title>
-
-    <!-- Scripts -->
-    
-    <script src="{{ asset('js/app.js') }}"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CADENA LOGÍSTICA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <meta name="description" content="Examples of just how powerful ArchitectUI really is!">
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <script src="{{ asset('/js/app.js') }}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
@@ -20,12 +19,9 @@
     <link rel="stylesheet" href="{{ asset('/template/vendors/linearicons-master/dist/web-font/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/template/vendors/pixeden-stroke-7-icon-master/pe-icon-7-stroke/dist/pe-icon-7-stroke.css') }}">
     <link href="{{ asset('/template/styles/css/base.css') }}" rel="stylesheet">
-
-    <!-- Styles -->    
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md ">
             
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -34,7 +30,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button> --}}
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     {{-- <ul class="navbar-nav mr-auto">
 
@@ -829,7 +824,7 @@
                                                         </a>
                                                         <ul>
                                                             <li>
-                                                                <a href="index.html" class="mm-active">
+                                                                <a href="{{url('ingresocompra')}}" class="mm-active">
                                                                     <i class="metismenu-icon"></i>
                                                                     Ingreso por Compra
                                                                 </a>
@@ -877,24 +872,23 @@
                                                   
                                                 </div>
                                             </div>
-                                            <div id="app">
+                                            <div id="row">
                                                 <div class="col-md-12">
                                                     
-                                                    @yield('content')
+                                                    @yield('contenido')
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>                                                                                                                    
+                            </div>                                                                                                                    
                         @endguest                    
                     {{-- </ul> --}}
-                </div>
-        </nav>
-        {{-- <main class="py-4">
+        <main class="py-4">
             
-            @yield('contentenido')
-        </main> --}}
-    </div>
+            @yield('content')
+        </main>
+
     <script type="text/javascript" src="{{ asset('template/vendors/jquery/dist/jquery.min.js') }}"></script>
     {{-- <script type="text/javascript" src="{{ asset('template/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script> --}}
     <script type="text/javascript" src="{{ asset('template/vendors/moment/moment.js') }}"></script>
@@ -912,15 +906,15 @@
     <script type="text/javascript" src="{{ asset('template/vendors/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/slick-carousel/slick/slick.min.js') }}"></script>
     <!-- custome.js -->
-    <script type="text/javascript" src="{{ asset('template/js/charts/apex-charts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/charts/apex-charts.js') }}"></script>
     {{-- <script type="text/javascript" src="{{ asset('template/js/circle-progress.js') }}"></script> --}}
-    <script type="text/javascript" src="{{ asset('template/js/demo.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/js/scrollbar.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/js/toastr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/demo.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/scrollbar.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/toastr.js') }}"></script>
     {{-- <script type="text/javascript" src="{{ asset('template/js/treeview.js') }}"></script> --}}
-    <script type="text/javascript" src="{{ asset('template/js/form-components/toggle-switch.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/js/tables.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/js/carousel-slider.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/form-components/toggle-switch.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/tables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/carousel-slider.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/app.js') }}"></script>
 </body>
 </html>
