@@ -37,7 +37,8 @@
                                 @foreach($tipo_resp_af as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->descripcion }}</td><td>{{ $item->estado }}</td>
+                                        <td>{{ $item->descripcion }}</td>
+                                        <td>{{ ($item->estado)?'Activo':'Inactivo' }}</td>
                                         <td>
                                             <a href="{{ url('/tipo_resp_af/' . $item->id) }}" title="View tipo_resp_af"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/tipo_resp_af/' . $item->id . '/edit') }}" title="Edit tipo_resp_af"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

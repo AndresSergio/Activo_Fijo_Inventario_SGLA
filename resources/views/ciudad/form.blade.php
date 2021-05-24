@@ -15,7 +15,11 @@
 </div>
 <div class="form-group {{ $errors->has('estado') ? 'has-error' : ''}}">
     <label for="estado" class="control-label">{{ 'Estado' }}</label>
-    <input class="form-control {{$errors->has('estado')?'is-invalid':''}}" name="estado" type="number" id="estado" value="{{ isset($ciudad->estado) ? $ciudad->estado : old('estado')}}" >
+    <select name="estado" class="form-control {{$errors->has('estado')?'is-invalid':''}}">        
+        <option value="1">Activo</option>        
+        <option value="2">Inactivo</option>        
+    </select>
+    {{-- <input class="form-control {{$errors->has('estado')?'is-invalid':''}}" name="estado" type="number" id="estado" value="{{ isset($ciudad->estado) ? $ciudad->estado : old('estado')}}" > --}}
     {!! $errors->first('estado', '<p class="form-text text-danger">:message</p>') !!}
 </div>
 

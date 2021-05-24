@@ -45,7 +45,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->codigo }}</td>
                                         <td>{{ $item->nombre }}</td>
-                                        <td>{{ $item->estado }}</td>
+                                        <td>{{ ($item->estado)?'Activo':'Inactivo' }}</td>
                                         <td>
                                             <a href="{{ url('/departamento_af/' . $item->id) }}" title="View departamento_af"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/departamento_af/' . $item->id . '/edit') }}" title="Edit departamento_af"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

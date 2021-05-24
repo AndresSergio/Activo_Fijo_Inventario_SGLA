@@ -47,7 +47,7 @@
                                         <td>{{ $item->codigo }}</td>
                                         <td>{{ $item->nombre }}</td>
                                         <td>{{ $item->tiempo_vida }}</td>
-                                        <td>{{ $item->estado }}</td>
+                                        <td>{{ ($item->estado)?'Activo':'Inactivo' }} }}</td>
                                         <td>
                                             <a href="{{ url('/calificacion_acti_af/' . $item->id) }}" title="View calificacion_acti_af"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/calificacion_acti_af/' . $item->id . '/edit') }}" title="Edit calificacion_acti_af"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
