@@ -45,7 +45,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->nombre }}</td>
                                         <td>{{ $item->descripcion }}</td>
-                                        <td>{{ $item->estado }}</td>
+                                        <td>{{ ($item->estado)?'Activo':'Inactivo' }}</td>
                                         <td>
                                             <a href="{{ url('/marca_af/' . $item->id) }}" title="View marca_af"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Volver</button></a>
                                             <a href="{{ url('/marca_af/' . $item->id . '/edit') }}" title="Edit marca_af"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
