@@ -62,9 +62,9 @@
                                         <td>{{ $item->lote }}</td>
                                         <td>{{ $item->tiempo_vida }}</td>
                                         <td>{{ $item->control_mante }}</td>
-                                        <td>{{ $item->id_clasificacion }}</td>
-                                        <td>{{ $item->id_modelo }}</td>
-                                        <td>{{ $item->id_marca }}</td>
+                                        <td>{{ $item->nombrecalifi }}</td>
+                                        <td>{{ $item->nombremodelo }}</td>
+                                        <td>{{ $item->nombremarca }}</td>
                                         <td>{{ ($item->estado)?'Activo':'Inactivo' }}</td>
                                         <td>
                                             <a href="{{ url('/item_af/' . $item->id) }}" title="View item_af"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
