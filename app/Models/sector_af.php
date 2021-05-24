@@ -12,6 +12,7 @@ class sector_af extends Model
      * @var string
      */
     protected $table = 'sector_af';
+    public $timestamps = false;
 
     /**
     * The database primary key value.

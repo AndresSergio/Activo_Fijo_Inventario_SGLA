@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\calificacion_acti_af;
 use Illuminate\Http\Request;
+use App\Http\Requests\calificaion_acti_afRequest;
 
 class calificacion_acti_afController extends Controller
 {
@@ -28,7 +29,7 @@ class calificacion_acti_afController extends Controller
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $calificacion_acti_af = calificacion_acti_af::latest()->paginate($perPage);
+            $calificacion_acti_af = calificacion_acti_af::paginate($perPage);
         }
 
         return view('calificacion_acti_af.index', compact('calificacion_acti_af'));
@@ -51,7 +52,7 @@ class calificacion_acti_afController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(calificaion_acti_afRequest $request)
     {
         
         $requestData = $request->all();

@@ -7,9 +7,9 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Edit ciudad #{{ $ciudad->id }}</div>
+                    <div class="card-header">Editar ciudad #{{ $ciudad->id }}</div>
                     <div class="card-body">
-                        <a href="{{ url('/ciudad') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/ciudad') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button></a>
                         <br />
                         <br />
 
