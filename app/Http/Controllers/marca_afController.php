@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\marca_af;
 use Illuminate\Http\Request;
+use App\Http\Requests\marca_afRequest;
 
 class marca_afController extends Controller
 {
@@ -27,7 +28,7 @@ class marca_afController extends Controller
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $marca_af = marca_af::latest()->paginate($perPage);
+            $marca_af = marca_af::paginate($perPage);
         }
 
         return view('marca_af.index', compact('marca_af'));
@@ -50,7 +51,7 @@ class marca_afController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(marca_afRequest $request)
     {
         
         $requestData = $request->all();

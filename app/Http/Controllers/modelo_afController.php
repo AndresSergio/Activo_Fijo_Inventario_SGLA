@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\modelo_af;
 use Illuminate\Http\Request;
+use App\Http\Requests\modelo_afRequest;
 
 class modelo_afController extends Controller
 {
@@ -27,7 +28,7 @@ class modelo_afController extends Controller
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $modelo_af = modelo_af::latest()->paginate($perPage);
+            $modelo_af = modelo_af::paginate($perPage);
         }
 
         return view('modelo_af.index', compact('modelo_af'));
@@ -50,7 +51,7 @@ class modelo_afController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(modelo_afRequest $request)
     {
         
         $requestData = $request->all();

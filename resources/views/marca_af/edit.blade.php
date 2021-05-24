@@ -7,9 +7,9 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Edit marca_af #{{ $marca_af->id }}</div>
+                    <div class="card-header">Editar Marca #{{ $marca_af->id }}</div>
                     <div class="card-body">
-                        <a href="{{ url('/marca_af') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/marca_af') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button></a>
                         <br />
                         <br />
 

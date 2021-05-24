@@ -7,9 +7,9 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Create New tipo_resp_af</div>
+                    <div class="card-header">Crear Nuevo Tipo Responsablef</div>
                     <div class="card-body">
-                        <a href="{{ url('/tipo_resp_af') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/tipo_resp_af') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button></a>
                         <br />
                         <br />
 
