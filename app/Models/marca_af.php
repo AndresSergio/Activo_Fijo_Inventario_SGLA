@@ -12,6 +12,7 @@ class marca_af extends Model
      * @var string
      */
     protected $table = 'marca_af';
+    public $timestamps = false;
 
     /**
     * The database primary key value.

@@ -12,6 +12,7 @@ class responsable_af extends Model
      * @var string
      */
     protected $table = 'responsable_af';
+    public $timestamps = false;
 
     /**
     * The database primary key value.

@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\empresa_af;
 use Illuminate\Http\Request;
+use App\Http\Requests\empresa_afRequest;
 
 class empresa_afController extends Controller
 {
@@ -28,7 +29,7 @@ class empresa_afController extends Controller
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $empresa_af = empresa_af::latest()->paginate($perPage);
+            $empresa_af = empresa_af::paginate($perPage);
         }
 
         return view('empresa_af.index', compact('empresa_af'));
@@ -51,7 +52,7 @@ class empresa_afController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(empresa_afRequest $request)
     {
         
         $requestData = $request->all();

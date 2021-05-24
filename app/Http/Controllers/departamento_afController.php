@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\departamento_af;
 use Illuminate\Http\Request;
+use App\Http\Requests\departamento_afRequest;
 
 class departamento_afController extends Controller
 {
@@ -27,7 +28,7 @@ class departamento_afController extends Controller
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $departamento_af = departamento_af::latest()->paginate($perPage);
+            $departamento_af = departamento_af::paginate($perPage);
         }
 
         return view('departamento_af.index', compact('departamento_af'));
@@ -50,7 +51,7 @@ class departamento_afController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(departamento_afRequest $request)
     {
         
         $requestData = $request->all();

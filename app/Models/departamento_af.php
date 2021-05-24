@@ -12,6 +12,7 @@ class departamento_af extends Model
      * @var string
      */
     protected $table = 'departamento_af';
+    public $timestamps = false;
 
     /**
     * The database primary key value.

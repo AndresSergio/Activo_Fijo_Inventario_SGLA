@@ -13,7 +13,7 @@ class departamento_afRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,28 @@ class departamento_afRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules() //reglas de validacion
     {
         return [
-            //
+            'codigo' => 'required',
+            'nombre' => 'required',
+            'estado' => 'required',
+        ];
+    }
+    public function messages() //mensajes personalizados
+    {
+        return [
+            'codigo.required' => 'El :attribute es obligatorio.',
+            'nombre.required' => 'El :attribute es obligatorio.',
+            'estado.required' => 'El :attribute es obligatorio.'
+        ];
+    }
+    public function attributes() //por si quieren cambiar el nombre de la columna
+    {
+        return [
+            'codigo' => 'Código',
+            'nombre' => 'Nombre',
+            'estado' => 'Estado',
         ];
     }
 }

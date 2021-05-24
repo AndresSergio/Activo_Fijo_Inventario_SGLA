@@ -5,7 +5,7 @@
 </div>  --}} -->
 <div class="form-group {{ $errors->has('codigo') ? 'is-invalid' : ''}}">
     <label for="codigo" class="control-label">{{ 'Codigo' }}</label>
-    <input class="form-control " name="codigo" type="text" id="codigo" value="{{ isset($calificacion_acti_af->codigo) ? $calificacion_acti_af->codigo :  old('codigo')}}" >
+    <input class="form-control {{$errors->has('nombre')?'is-invalid':''}}" name="codigo" type="text" id="codigo" value="{{ isset($calificacion_acti_af->codigo) ? $calificacion_acti_af->codigo :  old('codigo')}}" >
     {!! $errors->first('codigo', '<p class="form-text text-danger">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('nombre') ? 'has-error' : ''}}">
@@ -26,5 +26,5 @@
 
 
 <div class="form-group">
-    <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
+    <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Actualizar' : 'Crear' }}">
 </div>

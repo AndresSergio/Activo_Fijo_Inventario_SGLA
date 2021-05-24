@@ -12,7 +12,7 @@ class sucursal_af extends Model
      * @var string
      */
     protected $table = 'sucursal_af';
-
+    public $timestamps = false;
     /**
     * The database primary key value.
     *

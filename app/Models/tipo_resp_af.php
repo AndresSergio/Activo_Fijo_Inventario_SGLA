@@ -12,6 +12,7 @@ class tipo_resp_af extends Model
      * @var string
      */
     protected $table = 'tipo_resp_af';
+    public $timestamps = false;
 
     /**
     * The database primary key value.
