@@ -13,7 +13,7 @@ class tipo_resp_afRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,25 @@ class tipo_resp_afRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules() //reglas de validacion
     {
         return [
-            //
+            'descripcion' => 'required',
+            'estado' => 'required',
+        ];
+    }
+    public function messages() //mensajes personalizados
+    {
+        return [
+            'descripcion.required' => 'La :attribute es obligatoria.',
+            'estado.required' => 'El :attribute es obligatorio.'
+        ];
+    }
+    public function attributes() //por si quieren cambiar el nombre de la columna
+    {
+        return [
+            'descripcion' => 'Descripcion',
+            'estado' => 'Estado',
         ];
     }
 }

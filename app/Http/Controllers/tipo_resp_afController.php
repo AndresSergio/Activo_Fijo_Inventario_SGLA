@@ -7,6 +7,8 @@ use App\Http\Requests;
 
 use App\Models\tipo_resp_af;
 use Illuminate\Http\Request;
+use App\Http\Requests\tipo_resp_afRequest;
+
 
 class tipo_resp_afController extends Controller
 {
@@ -48,7 +50,7 @@ class tipo_resp_afController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(tipo_resp_afRequest $request)
     {
         
         $requestData = $request->all();

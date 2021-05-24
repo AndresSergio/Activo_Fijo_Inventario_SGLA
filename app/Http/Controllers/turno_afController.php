@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\turno_af;
 use Illuminate\Http\Request;
+use App\Http\Requests\turno_afRequest;
 
 class turno_afController extends Controller
 {
@@ -50,7 +51,7 @@ class turno_afController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(turno_afRequest $request)
     {
         
         $requestData = $request->all();
