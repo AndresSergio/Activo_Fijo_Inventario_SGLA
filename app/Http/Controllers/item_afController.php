@@ -39,7 +39,11 @@ class item_afController extends Controller
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $item_af = item_af::paginate($perPage);
+            $item_af = item_af::select('item_af.*','ma.nombre as nombremarca','m.nombre as nombremodelo','ca.nombre as nombrecalifi')
+            ->join('calificacion_acti_af as ca','ca.id','=','item_af.id_clasificacion')
+            ->join('modelo_af as m','m.id','=','item_af.id_modelo')
+            ->join('marca_af as ma','ma.id','=','item_af.id_marca')  
+            ->paginate($perPage);
         }
 
         return view('item_af.index', compact('item_af'));
