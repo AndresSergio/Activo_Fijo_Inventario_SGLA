@@ -7,10 +7,10 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Area_af</div>
+                    <div class="card-header">Área</div>
                     <div class="card-body">
                         <a href="{{ url('/area_af/create') }}" class="btn btn-success btn-sm" title="Add New area_af">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Crear
                         </a>
 
                         <form method="GET" action="{{ url('/area_af') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">

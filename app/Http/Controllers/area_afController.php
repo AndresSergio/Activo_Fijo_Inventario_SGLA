@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\area_af;
 use Illuminate\Http\Request;
+use App\Http\Requests\areaf_afRequest;
 
 class area_afController extends Controller
 {
@@ -27,7 +28,7 @@ class area_afController extends Controller
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $area_af = area_af::latest()->paginate($perPage);
+            $area_af = area_af::paginate($perPage);
         }
 
         return view('area_af.index', compact('area_af'));
@@ -50,7 +51,7 @@ class area_afController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(areaf_afRequest $request)
     {
         
         $requestData = $request->all();

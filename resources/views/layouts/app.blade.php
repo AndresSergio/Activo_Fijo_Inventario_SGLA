@@ -769,12 +769,12 @@
                                                             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                                         </a>
                                                         <ul>
-                                                            <li>
+                                                           <!--  <li>
                                                                 <a href="ciudad.index" class="mm-active">
                                                                     <i class="metismenu-icon"></i>
-                                                                    Inventariado
+                                                                    Inventariador
                                                                 </a>
-                                                            </li>
+                                                            </li> -->
                                                             <li>
                                                                 <a href="{{ url('/ciudad') }}">
                                                                     <i class="metismenu-icon"></i>
@@ -808,12 +808,12 @@
                                                                     </li>
                                                                 </ul> -->
                                                             </li>
-                                                            <li>
+                                                            <!-- <li>
                                                                 <a href="{{url('/item_af')}}">
                                                                     <i class="metismenu-icon"></i>
                                                                     Items
                                                                 </a>
-                                                            </li>
+                                                            </li> -->
                                                             <li>
                                                                 <a href="{{url('/calificacion_acti_af')}}">
                                                                     <i class="metismenu-icon"></i>
@@ -832,18 +832,18 @@
                                                                     Modelo
                                                                 </a>
                                                             </li>
-                                                            <li>
+                                                            <!-- <li>
                                                                 <a href="{{url('/sector_af')}}">
                                                                     <i class="metismenu-icon"></i>
                                                                     Sector
                                                                 </a>
-                                                            </li>
-                                                            <li>
+                                                            </li> -->
+                                                            <!-- <li>
                                                                 <a href="{{url('/sucursal_af')}}">
                                                                     <i class="metismenu-icon"></i>
                                                                     Sucursal
                                                                 </a>
-                                                            </li>
+                                                            </li> -->
                                                             <li>
                                                                 <a href="{{url('/area_af')}}">
                                                                     <i class="metismenu-icon"></i>
@@ -856,18 +856,18 @@
                                                                     Turno
                                                                 </a>
                                                             </li>
-                                                            <li>
+                                                            <!-- <li>
                                                                 <a href="{{url('/responsable_af')}}">
                                                                     <i class="metismenu-icon"></i>
                                                                     Responsable
                                                                 </a>
-                                                            </li>
-                                                            <li>
+                                                            </li> -->
+                                                            <!-- <li>
                                                                 <a href="{{url('/turno_af')}}">
                                                                     <i class="metismenu-icon"></i>
                                                                     Tipo de Informe
                                                                 </a>
-                                                            </li>
+                                                            </li> -->
                                                             <li>
                                                                 <a href="{{url('/tipo_resp_af')}}">
                                                                     <i class="metismenu-icon"></i>

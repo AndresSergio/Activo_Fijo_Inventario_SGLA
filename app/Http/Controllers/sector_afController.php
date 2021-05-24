@@ -29,7 +29,7 @@ class sector_afController extends Controller
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $sector_af = sector_af::->paginate($perPage);
+            $sector_af = sector_af::paginate($perPage);
         }
 
         return view('sector_af.index', compact('sector_af'));
