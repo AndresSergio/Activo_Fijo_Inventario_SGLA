@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('contenido')
-    <div class="container">
-        <div class="row">
+    <div class="">
+        <div class="row col-md-12">
            
 
             <div class="col-md-9">
@@ -24,9 +24,9 @@
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
-                                    <tr>
+                                   <!--  <tr>
                                         <th>ID</th><td>{{ $item_af->id }}</td>
-                                    </tr>
+                                    </tr> -->
                                     <tr><th> Id </th><td> {{ $item_af->id }} </td></tr><tr><th> Codigo </th><td> {{ $item_af->codigo }} </td></tr><tr><th> Nombre </th><td> {{ $item_af->nombre }} </td></tr>
                                 </tbody>
                             </table>
