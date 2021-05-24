@@ -24,9 +24,9 @@
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
-                                    <tr>
+                                    <!-- <tr>
                                         <th>ID</th><td>{{ $ciudad->id }}</td>
-                                    </tr>
+                                    </tr> -->
                                     <tr><th> Id </th><td> {{ $ciudad->id }} </td></tr><tr><th> Codigo </th><td> {{ $ciudad->codigo }} </td></tr><tr><th> Descripcion </th><td> {{ $ciudad->descripcion }} </td></tr>
                                 </tbody>
                             </table>

@@ -12,6 +12,7 @@ class calificacion_acti_af extends Model
      * @var string
      */
     protected $table = 'calificacion_acti_af';
+    public $timestamps = false;
 
     /**
     * The database primary key value.

@@ -935,6 +935,7 @@
                                             <div id="app">
                                                 <div class="col-md-12">
                                                     
+                                                    @yield('content')
                                                     @yield('contenido')
                                                 </div>
                                             </div>
