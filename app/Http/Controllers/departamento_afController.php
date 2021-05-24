@@ -26,7 +26,7 @@ class departamento_afController extends Controller
                 ->orWhere('codigo', 'LIKE', "%$keyword%")
                 ->orWhere('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
             $departamento_af = departamento_af::paginate($perPage);
         }

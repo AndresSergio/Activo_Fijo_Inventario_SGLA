@@ -30,9 +30,9 @@ class responsable_afController extends Controller
                 ->orWhere('id_sector', 'LIKE', "%$keyword%")
                 ->orWhere('id_turno', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
-            $responsable_af = responsable_af::latest()->paginate($perPage);
+            $responsable_af = responsable_af::paginate($perPage);
         }
 
         return view('responsable_af.index', compact('responsable_af'));

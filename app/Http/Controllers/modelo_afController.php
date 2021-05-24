@@ -26,7 +26,7 @@ class modelo_afController extends Controller
                 ->orWhere('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('descripcion', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
             $modelo_af = modelo_af::paginate($perPage);
         }

@@ -25,9 +25,9 @@ class turno_afController extends Controller
                 ->orWhere('horario_ini', 'LIKE', "%$keyword%")
                 ->orWhere('horario_fin', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
-            $turno_af = turno_af::latest()->paginate($perPage);
+            $turno_af = turno_af::paginate($perPage);
         }
 
         return view('turno_af.index', compact('turno_af'));

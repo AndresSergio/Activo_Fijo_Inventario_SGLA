@@ -35,7 +35,7 @@ class item_afController extends Controller
                 ->orWhere('id_modelo', 'LIKE', "%$keyword%")
                 ->orWhere('id_marca', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
             $item_af = item_af::latest()->paginate($perPage);
         }

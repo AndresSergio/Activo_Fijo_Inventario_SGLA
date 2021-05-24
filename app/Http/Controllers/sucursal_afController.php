@@ -27,9 +27,9 @@ class sucursal_afController extends Controller
                 ->orWhere('id_empresa', 'LIKE', "%$keyword%")
                 ->orWhere('id_Departamento', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
-            $sucursal_af = sucursal_af::latest()->paginate($perPage);
+            $sucursal_af = sucursal_af::paginate($perPage);
         }
 
         return view('sucursal_af.index', compact('sucursal_af'));

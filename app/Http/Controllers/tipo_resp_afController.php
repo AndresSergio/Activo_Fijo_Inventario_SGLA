@@ -23,9 +23,9 @@ class tipo_resp_afController extends Controller
         if (!empty($keyword)) {
             $tipo_resp_af = tipo_resp_af::where('descripcion', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
-            $tipo_resp_af = tipo_resp_af::latest()->paginate($perPage);
+            $tipo_resp_af = tipo_resp_af::paginate($perPage);
         }
 
         return view('tipo_resp_af.index', compact('tipo_resp_af'));

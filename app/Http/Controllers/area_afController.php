@@ -25,7 +25,7 @@ class area_afController extends Controller
                 ->orWhere('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('descripcion', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
             $area_af = area_af::latest()->paginate($perPage);
         }

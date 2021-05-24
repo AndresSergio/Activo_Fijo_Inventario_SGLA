@@ -27,9 +27,9 @@ class sector_afController extends Controller
                 ->orWhere('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('descripcion', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
-            $sector_af = sector_af::latest()->paginate($perPage);
+            $sector_af = sector_af::->paginate($perPage);
         }
 
         return view('sector_af.index', compact('sector_af'));

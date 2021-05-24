@@ -26,7 +26,7 @@ class ciudadController extends Controller
                 ->orWhere('codigo', 'LIKE', "%$keyword%")
                 ->orWhere('descripcion', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
             $ciudad = ciudad::paginate($perPage);
         }

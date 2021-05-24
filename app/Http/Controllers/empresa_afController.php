@@ -27,7 +27,7 @@ class empresa_afController extends Controller
                 ->orWhere('nit', 'LIKE', "%$keyword%")
                 ->orWhere('descripcion', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
             $empresa_af = empresa_af::paginate($perPage);
         }

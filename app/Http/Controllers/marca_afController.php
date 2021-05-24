@@ -26,7 +26,7 @@ class marca_afController extends Controller
                 ->orWhere('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('descripcion', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
             $marca_af = marca_af::paginate($perPage);
         }

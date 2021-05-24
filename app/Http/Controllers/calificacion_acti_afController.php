@@ -27,7 +27,7 @@ class calificacion_acti_afController extends Controller
                 ->orWhere('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('tiempo_vida', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
             $calificacion_acti_af = calificacion_acti_af::paginate($perPage);
         }
