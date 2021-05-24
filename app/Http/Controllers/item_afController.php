@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use App\Models\calificacion_acti_af;
 use App\Models\item_af;
+use App\Models\marca_af;
+use App\Models\modelo_af;
 use Illuminate\Http\Request;
 
 class item_afController extends Controller
@@ -37,7 +39,7 @@ class item_afController extends Controller
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $item_af = item_af::latest()->paginate($perPage);
+            $item_af = item_af::paginate($perPage);
         }
 
         return view('item_af.index', compact('item_af'));
@@ -50,7 +52,10 @@ class item_afController extends Controller
      */
     public function create()
     {
-        return view('item_af.create');
+        $marca = marca_af::pluck('id','nombre');
+        $modelo = modelo_af::pluck('id','nombre');
+        $califica = calificacion_acti_af::pluck('id','nombre');
+        return view('item_af.create',['marca'=> $marca, 'modelo'=>$modelo, 'califica' => $califica, 'item_af' => new item_af(),]);
     }
 
     /**

@@ -44,7 +44,12 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->codigo }}</td>
                                         <td>{{ $item->descripcion }}</td>
-                                        <td >{{ ($item->estado)?'Activo':'Inactivo' }}</td>
+                                        @if ($item->estado == '1')
+                                        <td >Activo</td>                                                                                    
+                                        @else
+                                        <td >Inactivo</td>                                        
+                                        @endif
+                                        {{-- <td >{{ ($item->estado)?'Activo':'Inactivo' }}</td> --}}
                                         <td>
                                             <a href="{{ url('/ciudad/' . $item->id) }}" title="View ciudad"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
                                             <a href="{{ url('/ciudad/' . $item->id . '/edit') }}" title="Edit ciudad"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>

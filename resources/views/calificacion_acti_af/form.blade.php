@@ -26,8 +26,7 @@
     </select>
     {{-- <input class="form-control" name="estado" type="number" id="estado" value="{{ isset($calificacion_acti_af->estado) ? $calificacion_acti_af->estado : ''}}" > --}}
     {!! $errors->first('estado', '<p class="help-block">:message</p>') !!}
-    <input class="form-control {{$errors->has('estado')?'is-invalid':''}}" name="estado" type="number" id="estado" value="{{ isset($calificacion_acti_af->estado) ? $calificacion_acti_af->estado :  old('estado')}}" >
-    {!! $errors->first('estado', '<p class="form-text text-danger">:message</p>') !!}
+    
 </div>
 
 

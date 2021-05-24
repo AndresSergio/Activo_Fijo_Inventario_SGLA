@@ -50,17 +50,32 @@
 </div>
 <div class="form-group {{ $errors->has('id_clasificacion') ? 'has-error' : ''}}">
     <label for="id_clasificacion" class="control-label">{{ 'Id Clasificacion' }}</label>
-    <input class="form-control {{$errors->has('id_clasificacion')?'is-invalid':''}}" name="id_clasificacion" type="number" id="id_clasificacion" value="{{ isset($item_af->id_clasificacion) ? $item_af->id_clasificacion : old('id_clasificacion')}}" >
+    <select name="id_clasificacion" class="form-control">
+        @foreach ($califica as $nombre => $id)
+            <option {{$item_af->id_clasificacion == $id ? 'selected="selected"' : ''}}  value="{{old('id_clasificacion ', $id )}}">{{ $nombre }}</option>
+        @endforeach
+    </select>
+    {{-- <input class="form-control {{$errors->has('id_clasificacion')?'is-invalid':''}}" name="id_clasificacion" type="number" id="id_clasificacion" value="{{ isset($item_af->id_clasificacion) ? $item_af->id_clasificacion : old('id_clasificacion')}}" > --}}
     {!! $errors->first('id_clasificacion', '<p class="form-text text-danger">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('id_modelo') ? 'has-error' : ''}}">
     <label for="id_modelo" class="control-label">{{ 'Id Modelo' }}</label>
-    <input class="form-control {{$errors->has('id_modelo')?'is-invalid':''}}" name="id_modelo" type="number" id="id_modelo" value="{{ isset($item_af->id_modelo) ? $item_af->id_modelo : old('id_modelo')}}" >
+    <select name="id_modelo" class="form-control">
+        @foreach ($modelo as $nombre => $id)
+            <option {{$item_af->id_modelo == $id ? 'selected="selected"' : ''}}  value="{{old('id_modelo ', $id )}}">{{ $nombre }}</option>
+        @endforeach
+    </select>
+    {{-- <input class="form-control {{$errors->has('id_modelo')?'is-invalid':''}}" name="id_modelo" type="number" id="id_modelo" value="{{ isset($item_af->id_modelo) ? $item_af->id_modelo : old('id_modelo')}}" > --}}
     {!! $errors->first('id_modelo', '<p class="form-text text-danger">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('id_marca') ? 'has-error' : ''}}">
     <label for="id_marca" class="control-label">{{ 'Id Marca' }}</label>
-    <input class="form-control {{$errors->has('id_marca')?'is-invalid':''}}" name="id_marca" type="number" id="id_marca" value="{{ isset($item_af->id_marca) ? $item_af->id_marca : old('id_marca')}}" >
+    <select name="id_marca" class="form-control">
+        @foreach ($marca as $nombre => $id)
+            <option {{$item_af->id_marca == $id ? 'selected="selected"' : ''}}  value="{{old('id_marca ', $id )}}">{{ $nombre }}</option>
+        @endforeach
+    </select>
+    {{-- <input class="form-control {{$errors->has('id_marca')?'is-invalid':''}}" name="id_marca" type="number" id="id_marca" value="{{ isset($item_af->id_marca) ? $item_af->id_marca : old('id_marca')}}" > --}}
     {!! $errors->first('id_marca', '<p class="form-text text-danger">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('estado') ? 'has-error' : ''}}">

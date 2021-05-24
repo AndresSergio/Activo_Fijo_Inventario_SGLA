@@ -28,5 +28,7 @@ class marca_af extends Model
      */
     protected $fillable = ['id', 'nombre', 'descripcion', 'estado'];
 
-    
+    public function items(){
+        return $this->hasMany(item_af::class);
+    }
 }

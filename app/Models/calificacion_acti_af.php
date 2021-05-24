@@ -28,5 +28,7 @@ class calificacion_acti_af extends Model
      */
     protected $fillable = ['id', 'codigo', 'nombre', 'tiempo_vida', 'estado'];
 
-    
+    public function items(){
+        return $this->hasMany(item_af::class);
+    }
 }
