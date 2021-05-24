@@ -24,7 +24,7 @@ class empresa_afRequest extends FormRequest
     public function rules() //reglas de validacion
     {
         return [
-            'nit' => 'required',
+            'nit' => 'required|max:10',
             'nombre' => 'required',
             'descripcion' => 'required',
             'estado' => 'required',
