@@ -10,7 +10,7 @@
     <meta name="description" content="Examples of just how powerful ArchitectUI really is!">
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
-    <script src="{{ asset('/js/app.js') }}"></script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
@@ -765,35 +765,35 @@
                                                     <li class="mm-active">
                                                         <a href="#">
                                                             <i class="metismenu-icon pe-7s-rocket"></i>
-                                                            Dashboards
+                                                            Maestros
                                                             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                                         </a>
                                                         <ul>
                                                             <li>
-                                                                <a href="index.html" class="mm-active">
+                                                                <a href="ciudad.index" class="mm-active">
                                                                     <i class="metismenu-icon"></i>
-                                                                    Analytics
+                                                                    Inventariado
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="dashboards-commerce.html">
+                                                                <a href="{{ url('/ciudad') }}">
                                                                     <i class="metismenu-icon"></i>
-                                                                    Commerce
+                                                                    Ciudad
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="dashboards-sales.html">
+                                                                <a href="{{url('/departamento_af')}}">
                                                                     <i class="metismenu-icon"></i>
-                                                                    Sales
+                                                                    Departamento
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="{{url('/empresa_af')}}">
                                                                     <i class="metismenu-icon"></i>
-                                                                    Minimal
-                                                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                                                    Empresa
+                                                                    <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                                                 </a>
-                                                                <ul>
+                                                                <!-- <ul>
                                                                     <li>
                                                                         <a href="dashboards-minimal-1.html">
                                                                             <i class="metismenu-icon"></i>
@@ -806,12 +806,72 @@
                                                                             Variation 2
                                                                         </a>
                                                                     </li>
-                                                                </ul>
+                                                                </ul> -->
                                                             </li>
                                                             <li>
-                                                                <a href="dashboards-crm.html">
+                                                                <a href="{{url('/item_af')}}">
                                                                     <i class="metismenu-icon"></i>
-                                                                    CRM
+                                                                    Items
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{url('/calificacion_acti_af')}}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Clasificación de Activo
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{url('/marca_af')}}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Marca
+                                                                </a>                                                                                            
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{url('/modelo_af')}}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Modelo
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{url('/sector_af')}}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Sector
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{url('/sucursal_af')}}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Sucursal
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{url('/area_af')}}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Área
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{url('/turno_af')}}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Turno
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{url('/responsable_af')}}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Responsable
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{url('/turno_af')}}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Tipo de Informe
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{url('/tipo_resp_af')}}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Tipo de Responsable
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -872,7 +932,7 @@
                                                   
                                                 </div>
                                             </div>
-                                            <div id="row">
+                                            <div id="app">
                                                 <div class="col-md-12">
                                                     
                                                     @yield('contenido')
@@ -888,9 +948,9 @@
             
             @yield('content')
         </main>
-
-    <script type="text/javascript" src="{{ asset('template/vendors/jquery/dist/jquery.min.js') }}"></script>
-    {{-- <script type="text/javascript" src="{{ asset('template/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script> --}}
+    <script src="{{ asset('/js/app.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ asset('template/vendors/jquery/dist/jquery.min.js') }}"></script> -->
+    <!-- {{-- <script type="text/javascript" src="{{ asset('template/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script> --}} -->
     <script type="text/javascript" src="{{ asset('template/vendors/moment/moment.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/metismenu/dist/metisMenu.js') }}"></script>
     {{-- <script type="text/javascript" src="{{ asset('template/vendors/bootstrap4-toggle/js/bootstrap4-toggle.min.js') }}"></script> --}}
