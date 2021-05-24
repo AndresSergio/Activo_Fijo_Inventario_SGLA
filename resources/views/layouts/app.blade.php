@@ -876,7 +876,7 @@
                                                             </li>
                                                         </ul>
                                                     </li>   
-                                                    <li class="mm-active">
+                                                    <!-- <li class="mm-active">
                                                         <a href="#">
                                                             <i class="metismenu-icon pe-7s-way"></i>
                                                             Ingresos
@@ -909,7 +909,7 @@
                                                                 </a>                                                                
                                                             </li>                                                        
                                                         </ul>
-                                                    </li>                                                                                                    
+                                                    </li>   -->                                                                                                  
                                                 </ul>
                                             </div>
                                         </div>
