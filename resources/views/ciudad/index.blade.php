@@ -29,8 +29,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Id</th>
+                                        <th>#</th>                                        
                                         <th>Codigo</th>
                                         <th>Descripcion</th>
                                         <th>Estado</th>
@@ -39,8 +38,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($ciudad as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                    <tr>                                
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->codigo }}</td>
                                         <td>{{ $item->descripcion }}</td>

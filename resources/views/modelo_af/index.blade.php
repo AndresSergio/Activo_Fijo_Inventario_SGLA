@@ -30,8 +30,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Id</th>
+                                        <th>#</th>                                    
                                         <th>Nombre</th>
                                         <th>Descripcion</th>
                                         <th>Estado</th>
@@ -40,8 +39,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($modelo_af as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                    <tr>                                        
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->nombre }}</td>
                                         <td>{{ $item->descripcion }}</td>

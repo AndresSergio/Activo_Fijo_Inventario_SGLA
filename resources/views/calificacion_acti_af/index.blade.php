@@ -30,8 +30,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Id</th>
+                                        <th>#</th>                                    
                                         <th>Codigo</th>
                                         <th>Nombre</th>
                                         <th>Tiempo vida</th>
@@ -41,8 +40,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($calificacion_acti_af as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                    <tr>                                    
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->codigo }}</td>
                                         <td>{{ $item->nombre }}</td>
