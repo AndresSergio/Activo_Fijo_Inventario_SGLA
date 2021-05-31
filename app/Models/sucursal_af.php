@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\IngresoCompra;
 use Illuminate\Database\Eloquent\Model;
 
 class sucursal_af extends Model
@@ -27,5 +28,8 @@ class sucursal_af extends Model
      */
     protected $fillable = ['id', 'codigo', 'descripcion', 'id_empresa', 'id_Departamento', 'estado'];
 
-    
+    public function Ingreso_compra(){
+
+        return $this->hasMany(IngresoCompra::class);
+    }
 }

@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\IngresoCompra;
+use App\DetalleIngreso;
+use App\Http\Requests\IngresoCompraRequest;
+use App\IngresoCompra as IngresoCompra;
+use App\Models\sucursal_af;
+use App\TipoIngresoAF;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IngresoCompraController extends Controller
 {
@@ -15,7 +21,11 @@ class IngresoCompraController extends Controller
     public function index()
     {
         //
-        return view('ingreso.index');
+        $ingreso = IngresoCompra::select('ingreso_af.*','saf.descripcion as descripcionsucursal','raf.nombre as nombreresponsable','raf.apellido as apellidoresponsable')        
+        ->join('sucursal_af as saf','saf.id','=','ingreso_af.id_sucursal')
+        ->join('responsable_af as raf','raf.id','=','ingreso_af.id_responsable')
+        ->get();
+        return view('ingresocompra.index', compact('ingreso'));
     }
 
     /**
@@ -26,7 +36,11 @@ class IngresoCompraController extends Controller
     public function create()
     {
         //
-        return view('ingreso.create');
+        $items = DB::table('item_af as i')
+        ->select(DB::raw('CONCAT(i.codigo, " ",i.nombre) AS item'),'i.id')
+        ->where('i.estado','=','1')
+        ->get();
+        return view('ingresocompra.create',["items"=>$items]);
     }
 
     /**
@@ -38,6 +52,65 @@ class IngresoCompraController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->detalle_articulos);
+        
+
+        try{
+
+
+
+
+            DB::beginTransaction();    
+            $ingreso = new IngresoCompra;
+            $ingreso->numero_doc=$request->get('numero_doc');
+            $ingreso->id_tipo_ingr=$request->get('id_tipo_ingr');
+            $ingreso->id_sucursal=$request->get('id_sucursal');
+            $ingreso->id_responsable=$request->get('id_responsable');
+            $ingreso->tipo_doc=$request->get('tipo_doc');
+            
+            $mytime = Carbon::now('America/La_Paz');
+            $ingreso->fecha_reg=$mytime->toDateTimeString();
+            $ingreso->estado='1';
+            $ingreso->save();
+            
+            $id_item = $request->get('id_item');        
+            $det_descripcion = $request->get('det_descripcion');
+            $cantidad = $request->get('cantidad');
+
+           /*  $cont = 0; */
+
+            $det = $request->detalle_articulos;
+            
+            foreach ($det as $key => $value) {
+                //dd($value['nombre   ']);//desparciar el id y nombre
+                $cod_item = explode(" ",$value['itemid']);
+                //dd($value['cantidad']);
+                $detallecompra = new DetalleIngreso();
+                $detallecompra->id_ingreso = $ingreso->id; 
+                $detallecompra->id_item = (int)$cod_item[0]; 
+                $detallecompra->det_descripcion = $value['descripcion'];
+                $detallecompra->cantidad = (int)$value['cantidad'];
+                $detallecompra->save();
+                /* $cont=$cont+1; */  
+
+            }
+            /* while($cont < count($id_item)){
+                $detallecompra = new DetalleIngreso();
+                $detallecompra->id_ingreso = $ingreso->id; 
+                $detallecompra->det_descripcion = $det_descripcion[$cont];
+                $detallecompra->cantidad = $cantidad[$cont];
+                $detallecompra->save();
+                $cont=$cont+1;  
+            } */
+            DB::commit();
+        }
+        catch(\Exception $e)
+        {
+            DB::rollback();
+        }
+        
+        return redirect()->route('ingresocompra.index')->with('flash_message', 'Ingreso de Compra registrada!');
+
     }
 
     /**
