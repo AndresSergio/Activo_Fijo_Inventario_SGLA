@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body" v-cloak>
                     <div class="card-block">
-                        <table class="table table-hover table-listing">
+                        <table class="table table-hover table-striped table-bordered" id="example">
                             <thead>
                                 <tr>                                    
                                     <th >ID</th>
@@ -35,7 +35,10 @@
                                         <td>{{$ingr->fecha_reg}}</td>                                    
                                         <td>{{$ingr->descripcionsucursal}}</td>
                                         <td>{{$ingr->nombreresponsable}} {{$ingr->apellidoresponsable}}</td>
-                                        <td>{{$ingr->estado}}</td>
+                                        @if ($ingr->estado == '1')
+                                        <td class="badge badge-danger ml-2 mt-1">Ingresado</td>
+                                        @endif
+                                        
                                         
                                         <td>
                                             {{-- <div class="row no-gutters">
@@ -50,11 +53,32 @@
                                     </tr>
                                 @endforeach
                             </tbody>
-                        </table>
+                        </table>                         
                     </div>
+                    {{-- {{$ingreso->links()}}  --}}
                 </div>
-            </div>
-        </div>
+            </div>        
+        </div>        
     </div>
+    
+@endsection
+@section('js')
+<script type="text/javascript" src="{{ asset('template/vendors/bootstrap-table/dist/bootstrap-table.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('template/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('template/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<!-- custome.js -->
+<script type="text/javascript" src="{{ asset('/template/js/tables.js') }}"></script>
 
+<script>
+    $(document).ready(function(){
+        $('#example').DataTable({
+        responsive:true,
+        autoWidth: false,
+        "languaje":{
+            "url": "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
+            }
+        });
+    });
+    
+</script>
 @endsection

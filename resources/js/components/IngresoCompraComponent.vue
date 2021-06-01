@@ -78,6 +78,45 @@
                                         </select>  
                                     </div>
                                 </div>
+                                <div class="col-lg-4 col-sm-3 col-md-3 col-xs-12">
+                                    <div class="form-group">                            
+                                        <h5 class="card-title">Select2 Bootstrap 4 Single Item</h5>
+                                        <select class="multiselect-dropdown form-control">
+                                            <optgroup label="Alaskan/Hawaiian Time Zone">
+                                                <option value="AK">Alaska</option>
+                                                <option value="HI">Hawaii</option>
+                                            </optgroup>
+                                            <optgroup label="Pacific Time Zone">
+                                                <option value="CA">California</option>
+                                                <option value="NV">Nevada</option>
+                                                <option value="OR">Oregon</option>
+                                                <option value="WA">Washington</option>
+                                            </optgroup>                                            
+                                            <optgroup label="Eastern Time Zone">
+                                                <option value="CT">Connecticut</option>
+                                                <option value="DE">Delaware</option>
+                                                <option value="FL">Florida</option>
+                                                <option value="GA">Georgia</option>
+                                                <option value="IN">Indiana</option>
+                                                <option value="ME">Maine</option>
+                                                <option value="MD">Maryland</option>
+                                                <option value="MA">Massachusetts</option>
+                                                <option value="MI">Michigan</option>
+                                                <option value="NH">New Hampshire</option>
+                                                <option value="NJ">New Jersey</option>
+                                                <option value="NY">New York</option>
+                                                <option value="NC">North Carolina</option>
+                                                <option value="OH">Ohio</option>
+                                                <option value="PA">Pennsylvania</option>
+                                                <option value="RI">Rhode Island</option>
+                                                <option value="SC">South Carolina</option>
+                                                <option value="VT">Vermont</option>
+                                                <option value="VA">Virginia</option>
+                                                <option value="WV">West Virginia</option>
+                                            </optgroup>
+                                        </select> 
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 col-sm-2 col-md-2 col-xs-12">
                                     <div class="form-group">
                                         <label for="descripcion">Descripcion</label>
@@ -111,8 +150,7 @@
                                         <tbody>
                                             <tr v-for="(ite, index) in articulos" :key="ite.id">
                                                 <td><button class="mb-2 mr-2 btn-icon btn btn-warning" @click.prevent="eliminar_articulo(index)"><i class="pe-7s-trash btn-icon-wrapper"></i> Quitar</button></td>
-                                                <td v-for="items in item" :key="items.id">{{ite.itemid}}</td>
-                                                <td hidden>{{ite.id}}</td>
+                                                <td >{{ite.itemid}}</td>                                            
                                                 <td>{{ite.descripcion}}</td>
                                                 <td>{{ite.cantidad}}</td>
                                             </tr>

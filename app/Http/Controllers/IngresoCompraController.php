@@ -23,7 +23,7 @@ class IngresoCompraController extends Controller
         //
         $ingreso = IngresoCompra::select('ingreso_af.*','saf.descripcion as descripcionsucursal','raf.nombre as nombreresponsable','raf.apellido as apellidoresponsable')        
         ->join('sucursal_af as saf','saf.id','=','ingreso_af.id_sucursal')
-        ->join('responsable_af as raf','raf.id','=','ingreso_af.id_responsable')
+        ->join('responsable_af as raf','raf.id','=','ingreso_af.id_responsable')        
         ->get();
         return view('ingresocompra.index', compact('ingreso'));
     }

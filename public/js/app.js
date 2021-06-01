@@ -2079,6 +2079,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['csrf', 'it'],
   data: function data() {
@@ -38249,6 +38287,8 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
+                  _vm._m(0),
+                  _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "col-lg-4 col-sm-2 col-md-2 col-xs-12" },
@@ -38364,54 +38404,41 @@ var render = function() {
                           attrs: { id: "detalles" }
                         },
                         [
-                          _vm._m(0),
+                          _vm._m(1),
                           _vm._v(" "),
                           _c(
                             "tbody",
                             _vm._l(_vm.articulos, function(ite, index) {
-                              return _c(
-                                "tr",
-                                { key: ite.id },
-                                [
-                                  _c("td", [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "mb-2 mr-2 btn-icon btn btn-warning",
-                                        on: {
-                                          click: function($event) {
-                                            $event.preventDefault()
-                                            return _vm.eliminar_articulo(index)
-                                          }
+                              return _c("tr", { key: ite.id }, [
+                                _c("td", [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "mb-2 mr-2 btn-icon btn btn-warning",
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.eliminar_articulo(index)
                                         }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass:
-                                            "pe-7s-trash btn-icon-wrapper"
-                                        }),
-                                        _vm._v(" Quitar")
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _vm._l(_vm.item, function(items) {
-                                    return _c("td", { key: items.id }, [
-                                      _vm._v(_vm._s(ite.itemid))
-                                    ])
-                                  }),
-                                  _vm._v(" "),
-                                  _c("td", { attrs: { hidden: "" } }, [
-                                    _vm._v(_vm._s(ite.id))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(ite.descripcion))]),
-                                  _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(ite.cantidad))])
-                                ],
-                                2
-                              )
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "pe-7s-trash btn-icon-wrapper"
+                                      }),
+                                      _vm._v(" Quitar")
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(ite.itemid))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(ite.descripcion))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(ite.cantidad))])
+                              ])
                             }),
                             0
                           )
@@ -38462,6 +38489,82 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-4 col-sm-3 col-md-3 col-xs-12" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("h5", { staticClass: "card-title" }, [
+          _vm._v("Select2 Bootstrap 4 Single Item")
+        ]),
+        _vm._v(" "),
+        _c("select", { staticClass: "multiselect-dropdown form-control" }, [
+          _c("optgroup", { attrs: { label: "Alaskan/Hawaiian Time Zone" } }, [
+            _c("option", { attrs: { value: "AK" } }, [_vm._v("Alaska")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "HI" } }, [_vm._v("Hawaii")])
+          ]),
+          _vm._v(" "),
+          _c("optgroup", { attrs: { label: "Pacific Time Zone" } }, [
+            _c("option", { attrs: { value: "CA" } }, [_vm._v("California")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "NV" } }, [_vm._v("Nevada")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "OR" } }, [_vm._v("Oregon")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "WA" } }, [_vm._v("Washington")])
+          ]),
+          _vm._v(" "),
+          _c("optgroup", { attrs: { label: "Eastern Time Zone" } }, [
+            _c("option", { attrs: { value: "CT" } }, [_vm._v("Connecticut")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "DE" } }, [_vm._v("Delaware")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "FL" } }, [_vm._v("Florida")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "GA" } }, [_vm._v("Georgia")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "IN" } }, [_vm._v("Indiana")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "ME" } }, [_vm._v("Maine")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "MD" } }, [_vm._v("Maryland")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "MA" } }, [_vm._v("Massachusetts")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "MI" } }, [_vm._v("Michigan")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "NH" } }, [_vm._v("New Hampshire")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "NJ" } }, [_vm._v("New Jersey")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "NY" } }, [_vm._v("New York")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "NC" } }, [
+              _vm._v("North Carolina")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "OH" } }, [_vm._v("Ohio")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "PA" } }, [_vm._v("Pennsylvania")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "RI" } }, [_vm._v("Rhode Island")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "SC" } }, [
+              _vm._v("South Carolina")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "VT" } }, [_vm._v("Vermont")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "VA" } }, [_vm._v("Virginia")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "WV" } }, [_vm._v("West Virginia")])
+          ])
+        ])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
