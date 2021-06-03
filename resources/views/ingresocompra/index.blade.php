@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body" v-cloak>
                     <div class="card-block">
-                        <table class="table table-hover table-striped table-bordered" id="example">
+                        <table class="table table-hover table-striped table-bordered" >
                             <thead>
                                 <tr>                                    
                                     <th >ID</th>
@@ -55,7 +55,7 @@
                             </tbody>
                         </table>                         
                     </div>
-                    {{-- {{$ingreso->links()}}  --}}
+                    {{$ingreso->links()}} 
                 </div>
             </div>        
         </div>        

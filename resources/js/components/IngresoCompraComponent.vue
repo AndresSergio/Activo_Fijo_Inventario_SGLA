@@ -11,9 +11,12 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
-                <button class="mb-2 mr-2 btn-icon btn-shadow btn-outline-2x btn btn-outline-secondary" v-on:click="volver()"> 
-                    <i class="lnr-arrow-left btn-icon-wrapper"> </i> Volver
-                </button>        
+                <a href="/ingresocompra">
+                    <button class="mb-2 mr-2 btn-icon btn-shadow btn-outline-2x btn btn-outline-secondary" > 
+                        <i class="lnr-arrow-left btn-icon-wrapper"> </i> Volver
+                    </button>   
+                </a>  
+
             </div>
         </div>
             
