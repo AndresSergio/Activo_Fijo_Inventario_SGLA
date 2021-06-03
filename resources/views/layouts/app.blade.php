@@ -762,7 +762,7 @@
                                             <div class="app-sidebar__inner">
                                                 <ul class="vertical-nav-menu">
                                                     <li class="app-sidebar__heading">Menu</li>
-                                                    <li class="mm-active">
+                                                    <li class=" ">
                                                         <a href="#">
                                                             <i class="metismenu-icon pe-7s-rocket"></i>
                                                             Maestros
@@ -875,7 +875,40 @@
                                                                 </a>
                                                             </li>
                                                         </ul>
-                                                    </li>   
+                                                    </li> 
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="metismenu-icon pe-7s-rocket"></i>
+                                                            Gestionar Salidas
+                                                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                                        </a> 
+                                                        <ul>
+                                                            <li>
+                                                                <a href="{{ url('/salidas_transferencia') }}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Por Transferencia
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ url('/salidas_prestamo') }}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Por Préstamo
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ url('/salidas_mantenimiento') }}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Por mantenimiento
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ url('/salidas_bajas') }}">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Por Baja
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>  
                                                     <!-- <li class="mm-active">
                                                         <a href="#">
                                                             <i class="metismenu-icon pe-7s-way"></i>
@@ -952,30 +985,31 @@
     <script src="{{ asset('/js/app.js') }}"></script>
     <!-- <script type="text/javascript" src="{{ asset('template/vendors/jquery/dist/jquery.min.js') }}"></script> -->
     <!-- {{-- <script type="text/javascript" src="{{ asset('template/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script> --}} -->
-    <script type="text/javascript" src="{{ asset('template/vendors/moment/moment.js') }}"></script>
+   <!--  <script type="text/javascript" src="{{ asset('template/vendors/moment/moment.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('template/vendors/metismenu/dist/metisMenu.js') }}"></script>
-    {{-- <script type="text/javascript" src="{{ asset('template/vendors/bootstrap4-toggle/js/bootstrap4-toggle.min.js') }}"></script> --}}
-    <script type="text/javascript" src="{{ asset('template/vendors/jquery-circle-progress/dist/circle-progress.min.js') }}"></script>
+   <!--  <script type="text/javascript" src="{{ asset('template/vendors/bootstrap4-toggle/js/bootstrap4-toggle.min.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ asset('template/vendors/jquery-circle-progress/dist/circle-progress.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/perfect-scrollbar/dist/perfect-scrollbar.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/vendors/toastr/build/toastr.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/vendors/jquery.fancytree/dist/jquery.fancytree-all-deps.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/vendors/toastr/build/toastr.min.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ asset('template/vendors/jquery.fancytree/dist/jquery.fancytree-all-deps.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/bootstrap-table/dist/bootstrap-table.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/vendors/slick-carousel/slick/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/vendors/slick-carousel/slick/slick.min.js') }}"></script> -->
     <!-- custome.js -->
-    <script type="text/javascript" src="{{ asset('/template/js/charts/apex-charts.js') }}"></script>
-    {{-- <script type="text/javascript" src="{{ asset('template/js/circle-progress.js') }}"></script> --}}
-    <script type="text/javascript" src="{{ asset('/template/js/demo.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/template/js/scrollbar.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/template/js/toastr.js') }}"></script>
-    {{-- <script type="text/javascript" src="{{ asset('template/js/treeview.js') }}"></script> --}}
+    <!-- <script type="text/javascript" src="{{ asset('/template/js/charts/apex-charts.js') }}"></script> -->
+   <!--  {{-- <script type="text/javascript" src="{{ asset('template/js/circle-progress.js') }}"></script> --}} -->
+    <script type="text/javascript" src="{{ asset('/template/js/demo.js') }}"></script> <!-- menu hamburguesa -->
+    <!-- <script type="text/javascript" src="{{ asset('/template/js/scrollbar.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/toastr.js') }}"></script> -->
+    <!-- {{-- <script type="text/javascript" src="{{ asset('template/js/treeview.js') }}"></script> --}}
     <script type="text/javascript" src="{{ asset('/template/js/form-components/toggle-switch.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/template/js/tables.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/template/js/carousel-slider.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/carousel-slider.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('/template/js/app.js') }}"></script>
+    @yield('scripts-custom')
 </body>
 </html>
