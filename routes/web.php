@@ -23,7 +23,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('ingresocompra', 'IngresoCompraController');
+/* Route::resource('ingresocompra', 'IngresoCompraController'); */
+Route::post('ingresocompra', 'IngresoCompraController@store')->name('ingresocompra.store');
+Route::get('ingresocompra', 'IngresoCompraController@index')->name('ingresocompra.index');
+Route::get('ingresocompra/create', 'IngresoCompraController@create')->name('ingresocompra.create');
+
+
+
 
 /* crud generator */  //agregar un middleware
 /* Route::resource('ciudad', 'ciudadController'); */

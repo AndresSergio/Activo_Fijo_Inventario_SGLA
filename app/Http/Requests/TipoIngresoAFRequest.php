@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class IngresoCompraRequest extends FormRequest
+class TipoIngresoAFRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,10 @@ class IngresoCompraRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_doc' => 'required',    
-            'id_tipo_ingr' => 'required',
-            'id_sucursal' => 'required',
-            'id_responsable' => 'required',        
-            'tipo_doc' => 'required',        
+            //
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'estado' => 'required',
         ];
     }
 }
