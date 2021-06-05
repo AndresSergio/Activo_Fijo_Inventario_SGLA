@@ -23,8 +23,10 @@ class IngresoCompraController extends Controller
         //
         $ingreso = IngresoCompra::select('ingreso_af.*','saf.descripcion as descripcionsucursal','raf.nombre as nombreresponsable','raf.apellido as apellidoresponsable')        
         ->join('sucursal_af as saf','saf.id','=','ingreso_af.id_sucursal')
-        ->join('responsable_af as raf','raf.id','=','ingreso_af.id_responsable')        
-        ->get();
+        ->join('responsable_af as raf','raf.id','=','ingreso_af.id_responsable')
+        ->join('tipo_ingreso_af as tiaf','tiaf.id','=','ingreso_af.id_tipo_ingr')
+        ->where('tiaf.id','=','1')        
+        ->paginate(10);
         return view('ingresocompra.index', compact('ingreso'));
     }
 
@@ -40,6 +42,7 @@ class IngresoCompraController extends Controller
         ->select(DB::raw('CONCAT(i.codigo, " ",i.nombre) AS item'),'i.id')
         ->where('i.estado','=','1')
         ->get();
+        
         return view('ingresocompra.create',["items"=>$items]);
     }
 
@@ -57,9 +60,6 @@ class IngresoCompraController extends Controller
 
         try{
 
-
-
-
             DB::beginTransaction();    
             $ingreso = new IngresoCompra;
             $ingreso->numero_doc=$request->get('numero_doc');
@@ -73,9 +73,9 @@ class IngresoCompraController extends Controller
             $ingreso->estado='1';
             $ingreso->save();
             
-            $id_item = $request->get('id_item');        
+            /* $id_item = $request->get('id_item');        
             $det_descripcion = $request->get('det_descripcion');
-            $cantidad = $request->get('cantidad');
+            $cantidad = $request->get('cantidad'); */
 
            /*  $cont = 0; */
 
@@ -103,13 +103,15 @@ class IngresoCompraController extends Controller
                 $cont=$cont+1;  
             } */
             DB::commit();
+            return ['mensaje_c'=>'Ingreso de Compra registrada!'];
         }
         catch(\Exception $e)
         {
             DB::rollback();
+            return ['mensaje_c2'=>'Ingreso de Compra Fallida!'];
         }
         
-        return redirect()->route('ingresocompra.index')->with('flash_message', 'Ingreso de Compra registrada!');
+        /* return redirect()->route('ingresocompra.index')->with('flash_message', 'Ingreso de Compra registrada!'); */
 
     }
 
@@ -119,9 +121,24 @@ class IngresoCompraController extends Controller
      * @param  \App\IngresoCompra  $ingresoCompra
      * @return \Illuminate\Http\Response
      */
-    public function show(IngresoCompra $ingresoCompra)
+    public function show($id)
     {
         //
+        //dd($id);
+        $ingreso = IngresoCompra::select('ingreso_af.*','ra.nombre as nombrerespo', 'tiaf.nombre as nombretipoingreso', 's.descripcion as descripcionsucursal')
+            ->join('tipo_ingreso_af as tiaf','tiaf.id','=','ingreso_af.id_tipo_ingr')            
+            ->join('sucursal_af as s','s.id','=','ingreso_af.id_sucursal')
+            ->join('responsable_af as ra','ra.id','=','ingreso_af.id_responsable')        
+            ->where('ingreso_af.id','=',$id)
+            ->first();
+
+        $detalleingreso = DetalleIngreso::select('detalle_ingr_af.*')
+            ->join('item_af as ia','ia.id','=','detalle_ingr_af.id_item')
+            ->where('detalle_ingr_af.id_ingreso','=',$id)
+            ->first();
+        
+        //dd($detalleingreso);
+        return view('ingresocompra.show',['ingreso'=>$ingreso, 'detalleingreso'=>$detalleingreso]);
     }
 
     /**

@@ -36,6 +36,7 @@ Route::post('insertarDocumento', 'documento_Controller@insert_documento');
 Route::post('ingresocompra', 'IngresoCompraController@store')->name('ingresocompra.store');
 Route::get('ingresocompra', 'IngresoCompraController@index')->name('ingresocompra.index');
 Route::get('ingresocompra/create', 'IngresoCompraController@create')->name('ingresocompra.create');
+Route::get('ingresocompra/show/{id}', 'IngresoCompraController@show')->name('ingresocompra.show');
 
 
 
@@ -59,3 +60,12 @@ Route::resource('tipo_resp_af', 'tipo_resp_afController');
 
 
 /* crud generator */
+
+
+ /* salidas */
+ /* Route::resource('salidas_af', 'salidas_afController'); */
+ Route::resource('salidas_transferencia', 'salidas_af\salida_transController');
+/*  Route::get('salidas_prestamo', 'salidas_afController@index_prestamo');
+ Route::get('salidas_mantenimiento', 'salidas_afController@index_mantenimiento');
+ Route::get('salidas_bajas', 'salidas_afController@index_bajas'); */
+ /* salidas */

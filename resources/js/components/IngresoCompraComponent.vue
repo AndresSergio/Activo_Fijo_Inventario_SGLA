@@ -9,11 +9,18 @@
                         <li v-for="error in errors" v-bind:key="error">{{error}}</li>
                     </ul>
                 </div>
+                <div class="alert alert-success" v-if='mensaje_c != ""? true: false' >
+                    
+                        <h2>{{mensaje_c}}</h2>
+                    
+                </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
-                <button class="mb-2 mr-2 btn-icon btn-shadow btn-outline-2x btn btn-outline-secondary" v-on:click="volver()"> 
-                    <i class="lnr-arrow-left btn-icon-wrapper"> </i> Volver
-                </button>        
+                <a href="/ingresocompra">
+                    <button class="mb-2 mr-2 btn-icon btn-shadow btn-outline-2x btn btn-outline-secondary" > 
+                        <i class="lnr-arrow-left btn-icon-wrapper"> </i> Volver
+                    </button>   
+                </a>        
             </div>
         </div>
             
@@ -72,13 +79,13 @@
                                             
                                         </select> --> 
 
-                                        <select name="origen_suc" id="origen_suc" class="form-control" v-model="iditem" ><!-- {{$errors->has('origen_suc')?'is-invalid':''}} -->
+                                        <select name="origen_suc" id="origen_suc" class="form-control" v-model="iditem" :class="{'is-invalid':iditem_v}" @change="validacion_d()"><!-- {{$errors->has('origen_suc')?'is-invalid':''}} -->
                                             <option selected disabled value="">Seleccionar...</option>   
-                                            <option v-for="items in item" :value="items.id" :key="items.id">{{items.item}}</option>
+                                            <option v-for="items in item" :value="items" :key="items.id">{{items.item}}</option>
                                         </select>  
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-sm-3 col-md-3 col-xs-12">
+                                <!-- <div class="col-lg-4 col-sm-3 col-md-3 col-xs-12">
                                     <div class="form-group">                            
                                         <h5 class="card-title">Select2 Bootstrap 4 Single Item</h5>
                                         <select class="multiselect-dropdown form-control">
@@ -116,18 +123,18 @@
                                             </optgroup>
                                         </select> 
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-lg-4 col-sm-2 col-md-2 col-xs-12">
                                     <div class="form-group">
                                         <label for="descripcion">Descripcion</label>
-                                        <input type="text" name="descripcion" id="descripcion" class="form-control" v-model="descripcion"
-                                        placeholder="Descripcion...">
+                                        <input type="text" name="descripcion" id="descripcion" class="form-control" :class="{'is-invalid':descripcion_v}" @keydown="validacion_d()" v-model="descripcion"
+                                        placeholder="Descripcion..."/>
                                     </div>
                                 </div> 
                                 <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                                     <div class="form-group">
                                         <label for="cantidad">Cantidad</label>
-                                        <input type="number" name="cantidad" id="cantidad" class="form-control" v-model="cantidad"
+                                        <input type="number" name="cantidad" id="cantidad" class="form-control" :class="{'is-invalid':cantidad_v}" @keydown="validacion_d()" v-model="cantidad"
                                         placeholder="Cantidad...">
                                     </div>
                                 </div> 
@@ -150,7 +157,7 @@
                                         <tbody>
                                             <tr v-for="(ite, index) in articulos" :key="ite.id">
                                                 <td><button class="mb-2 mr-2 btn-icon btn btn-warning" @click.prevent="eliminar_articulo(index)"><i class="pe-7s-trash btn-icon-wrapper"></i> Quitar</button></td>
-                                                <td >{{ite.itemid}}</td>                                            
+                                                <td >{{ite.item_nombre}}</td>                                            
                                                 <td>{{ite.descripcion}}</td>
                                                 <td>{{ite.cantidad}}</td>
                                             </tr>
@@ -199,6 +206,14 @@
                 errors:[],
                 cont:'0',
                 
+                //variables de Validacion
+                iditem_v: false,
+                descripcion_v: false,
+                cantidad_v: false,
+
+                mensaje: '',
+
+
             } 
             
         },
@@ -217,45 +232,59 @@
                 detalle_articulos:me.articulos,
 
                 }).then(response=>{  
-                    console.log("Registrado");
+                    me.mensaje = response.data.mensaje_c;
+                }).catch(error=>{
+                    console.log(error.response.data.mensaje_c2);
+                    
                 });
+                
                 
                 this.validaciones();
 
             },
 
-            volver(){
-                var url= '/ingresocompra'
-                axios.get(url,{ 
-                }).then(response=>{  
-                    console.log("Volver");
-                });
+            validacion_d(){
+
+                let me = this;
+
+                if (me.iditem_v ) {
+                    me.iditem_v = false;
+                }
+                if (me.descripcion_v) {
+                    me.descripcion_v = false;
+                }
+                if (me.cantidad_v) {
+                    me.cantidad_v = false;
+                }
+                            
             },
 
             agregar_articulo:function () {
               let me = this;
               
-              if (me.iditem &&  me.descripcion && me.cantidad > 0 && me.cantidad ) {
+              if (me.iditem &&  me.descripcion && me.cantidad > 0 ) {
                     this.articulos.push({
-                        'itemid': me.iditem,
+                        'itemid': me.iditem.id,
+                        'item_nombre': me.iditem.item,
                         'descripcion': me.descripcion,
                         'cantidad': me.cantidad
 
                     }) ;
                     
                 }
-                if (!me.iditem) {
+                if ( !me.iditem) {
+                    me.iditem_v = true
                     me.errors.push('Seleccione un Item.');
                 }
                 if (!me.descripcion) {
+                    me.descripcion_v = true
                     me.errors.push('Se Requiere una Descripción.');
                 }
                 if (!me.cantidad) {
+                    me.cantidad_v = true
                     me.errors.push('La Cantidad debe ser mayor a 0.');
                 }
               this.limpiar();
-            
-              
 
             },
 
@@ -289,23 +318,7 @@
                 e.preventDefault();
             },
 
-            validar_detalle(e){
-                let me=this;
-                if (me.iditem &&  me.descripcion && me.cantidad > 0 && me.cantidad ) {
-                    return true;
-                }
-
-                if (!me.iditem) {
-                    me.errors.push('Seleccione un Item.');
-                }
-                if (!me.descripcion) {
-                    me.errors.push('Se Requiere una Descripción.');
-                }
-                if (!me.cantidad) {
-                    me.errors.push('La Cantidad debe ser mayor a 0.');
-                } 
-                e.preventDefault();
-            }
+            
 
 
 

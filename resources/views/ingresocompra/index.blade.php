@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body" v-cloak>
                     <div class="card-block">
-                        <table class="table table-hover table-striped table-bordered" id="example">
+                        <table class="table table-hover table-striped table-bordered" >
                             <thead>
                                 <tr>                                    
                                     <th >ID</th>
@@ -36,26 +36,26 @@
                                         <td>{{$ingr->descripcionsucursal}}</td>
                                         <td>{{$ingr->nombreresponsable}} {{$ingr->apellidoresponsable}}</td>
                                         @if ($ingr->estado == '1')
-                                        <td class="badge badge-danger ml-2 mt-1">Ingresado</td>
+                                        <td class="badge badge-danger ml-2 mt-2">Por Ingresar</td>
                                         @endif
                                         
                                         
                                         <td>
-                                            {{-- <div class="row no-gutters">
+                                            <div class="row no-gutters">
                                                 <div class="col-auto">
-                                                    <a class="btn btn-sm btn-spinner btn-info" :href="item.resource_url + '/edit'" title="{{ trans('brackets/admin-ui::admin.btn.edit') }}" role="button"><i class="fa fa-edit"></i></a>
+                                                    <a class="btn btn-sm btn-spinner btn-info" role="button" href="ingresocompra/show/{{$ingr->id}}" title="Ver Registro" ><i class="fa fa-eye"></i></a>
                                                 </div>
-                                                <form class="col" @submit.prevent="deleteItem(item.resource_url)">
+                                                {{-- <form class="col" @submit.prevent="deleteItem(item.resource_url)">
                                                     <button type="submit" class="btn btn-sm btn-danger" title="{{ trans('brackets/admin-ui::admin.btn.delete') }}"><i class="fa fa-trash"></i></button>
-                                                </form>
-                                            </div> --}}
+                                                </form> --}}
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>                         
                     </div>
-                    {{-- {{$ingreso->links()}}  --}}
+                    {{$ingreso->links()}} 
                 </div>
             </div>        
         </div>        
