@@ -27,6 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('ingresocompra', 'IngresoCompraController@store')->name('ingresocompra.store');
 Route::get('ingresocompra', 'IngresoCompraController@index')->name('ingresocompra.index');
 Route::get('ingresocompra/create', 'IngresoCompraController@create')->name('ingresocompra.create');
+Route::get('ingresocompra/show/{id}', 'IngresoCompraController@show')->name('ingresocompra.show');
 
 
 
