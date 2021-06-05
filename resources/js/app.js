@@ -24,6 +24,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('salidatransf-component', require('./components/salidas_af/salida_aftransfComponent.vue').default);
 Vue.component('ingresocompra-component', require('./components/IngresoCompraComponent.vue').default);
+Vue.component('documentonuevo-component', require('./components/DocumentoNuevoComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
