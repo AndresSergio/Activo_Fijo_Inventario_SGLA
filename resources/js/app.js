@@ -5,10 +5,10 @@
  */
 
 require('./bootstrap');
-import Vuelidate from 'vuelidate'
+/* import Vuelidate from 'vuelidate' */
 
 window.Vue = require('vue');
-Vue.use(Vuelidate)
+/* Vue.use(Vuelidate) */
 
 /**
  * The following block of code may be used to automatically register your

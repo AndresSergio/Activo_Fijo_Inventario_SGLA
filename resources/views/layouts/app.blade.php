@@ -13,10 +13,10 @@
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="{{ asset('template/vendors/@fortawesome/fontawesome-free/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('template/vendors/ionicons-npm/css/ionicons.css') }}">
-    <link rel="stylesheet" href="{{ asset('template/vendors/linearicons-master/dist/web-font/style.css') }}">
+    <!-- {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}} -->
+    <!-- <link rel="stylesheet" href="{{ asset('template/vendors/@fortawesome/fontawesome-free/css/all.min.css') }}"> -->
+    <!-- <link rel="stylesheet" href="{{ asset('template/vendors/ionicons-npm/css/ionicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/vendors/linearicons-master/dist/web-font/style.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('template/vendors/pixeden-stroke-7-icon-master/pe-icon-7-stroke/dist/pe-icon-7-stroke.css') }}">
     <link href="{{ asset('template/styles/css/base.css') }}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -876,7 +876,7 @@
                                                             </li>
                                                         </ul>
                                                     </li> 
-                                                    <li>
+                                                    <li class="mm-active">
                                                         <a href="#">
                                                             <i class="metismenu-icon pe-7s-rocket"></i>
                                                             Gestionar Salidas
@@ -884,7 +884,7 @@
                                                         </a> 
                                                         <ul>
                                                             <li>
-                                                                <a href="{{ url('/salidas_transferencia') }}">
+                                                                <a href="{{ url('/salidas_transferencia') }}" class="mm-active">
                                                                     <i class="metismenu-icon"></i>
                                                                     Por Transferencia
                                                                 </a>
@@ -909,7 +909,7 @@
                                                             </li>
                                                         </ul>
                                                     </li>  
-                                                    <!-- <li class="mm-active">
+                                                    <li > <!-- class="mm-active" -->
                                                         <a href="#">
                                                             <i class="metismenu-icon pe-7s-way"></i>
                                                             Ingresos
@@ -917,7 +917,7 @@
                                                         </a>
                                                         <ul>
                                                             <li>
-                                                                <a href="{{url('ingresocompra')}}" class="mm-active">
+                                                                <a href="{{url('ingresocompra')}}" > <!-- class="mm-active" -->
                                                                     <i class="metismenu-icon"></i>
                                                                     Ingreso por Compra
                                                                 </a>
@@ -978,36 +978,36 @@
                             </div>                                                                                                                    
                         @endguest                    
                     {{-- </ul> --}}
-        <main class="py">
+        <!-- <main class="py">
             
             @yield('content')
-        </main>
-    <script src="{{ asset('/js/app.js') }}"></script>
+        </main>  -->
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- <script type="text/javascript" src="{{ asset('template/vendors/jquery/dist/jquery.min.js') }}"></script> -->
-    <!-- {{-- <script type="text/javascript" src="{{ asset('template/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script> --}} -->
-   <!--  <script type="text/javascript" src="{{ asset('template/vendors/moment/moment.js') }}"></script> -->
+    <script type="text/javascript" src="{{ asset('template/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ asset('template/vendors/moment/moment.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('template/vendors/metismenu/dist/metisMenu.js') }}"></script>
-   <!--  <script type="text/javascript" src="{{ asset('template/vendors/bootstrap4-toggle/js/bootstrap4-toggle.min.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ asset('template/vendors/jquery-circle-progress/dist/circle-progress.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/vendors/perfect-scrollbar/dist/perfect-scrollbar.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/vendors/toastr/build/toastr.min.js') }}"></script> -->
-    <!-- <script type="text/javascript" src="{{ asset('template/vendors/jquery.fancytree/dist/jquery.fancytree-all-deps.min.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ asset('template/vendors/bootstrap4-toggle/js/bootstrap4-toggle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/vendors/jquery-circle-progress/dist/circle-progress.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/vendors/perfect-scrollbar/dist/perfect-scrollbar.min.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ asset('template/vendors/toastr/build/toastr.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/vendors/jquery.fancytree/dist/jquery.fancytree-all-deps.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/apexcharts/dist/apexcharts.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/vendors/bootstrap-table/dist/bootstrap-table.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('template/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/vendors/bootstrap-table/dist/bootstrap-table.min.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ asset('template/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('template/vendors/slick-carousel/slick/slick.min.js') }}"></script> -->
     <!-- custome.js -->
-    <!-- <script type="text/javascript" src="{{ asset('/template/js/charts/apex-charts.js') }}"></script> -->
-   <!--  {{-- <script type="text/javascript" src="{{ asset('template/js/circle-progress.js') }}"></script> --}} -->
+    <!-- <script type="text/javascript" src="{{ asset('/template/js/charts/apex-charts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/js/circle-progress.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('/template/js/demo.js') }}"></script> <!-- menu hamburguesa -->
     <!-- <script type="text/javascript" src="{{ asset('/template/js/scrollbar.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/template/js/toastr.js') }}"></script> -->
-    <!-- {{-- <script type="text/javascript" src="{{ asset('template/js/treeview.js') }}"></script> --}}
-    <script type="text/javascript" src="{{ asset('/template/js/form-components/toggle-switch.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/template/js/tables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/template/js/toastr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('template/js/treeview.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ asset('/template/js/form-components/toggle-switch.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ asset('/template/js/tables.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/template/js/carousel-slider.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('/template/js/app.js') }}"></script>
     @yield('scripts-custom')

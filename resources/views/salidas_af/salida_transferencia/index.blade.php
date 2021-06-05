@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('contenido')
-    <div class="container">
+    <div class="">
         <div class="row">
            
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Gestión de Salidas</div>
                     <div class="card-body">
@@ -94,9 +94,6 @@
 @endsection
 
 @section('scripts-custom')
-<!-- <script type="text/javascript" src="{{asset('/template/vendors/jquery-validation/dist/jquery.validate.min.js')}}"></script> -->
-<!-- src="{{ asset('/template/js/app.js') }}" -->
-<script type="text/javascript" src="{{asset('/template/js/form-components/form-validation.js')}}"></script>
-<!-- <script type="text/javascript" src="{{asset('/template/js/form-components/form-validation.js')}}"></script> -->
+
 <!-- Aqui van los scripts para cada seccion, segun vean necesario -->
 @endsection

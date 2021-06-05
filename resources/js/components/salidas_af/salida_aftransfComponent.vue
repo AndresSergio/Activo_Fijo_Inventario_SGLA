@@ -85,7 +85,7 @@
 </template>
 
 <script>
-/* import { required,sameAs} from 'vuelidate/lib/validators' */
+
 export default {
     props: ['user','suc','token','errores','ori_suc','dest_suc'],
     computed:{
