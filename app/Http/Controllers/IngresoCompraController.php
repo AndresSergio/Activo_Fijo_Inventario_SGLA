@@ -132,7 +132,7 @@ class IngresoCompraController extends Controller
             ->where('ingreso_af.id','=',$id)
             ->first();
 
-        $detalleingreso = DetalleIngreso::select('detalle_ingr_af.*')
+        $detalleingreso = DetalleIngreso::select('detalle_ingr_af.*','ia.nombre as nombreitem')
             ->join('item_af as ia','ia.id','=','detalle_ingr_af.id_item')
             ->where('detalle_ingr_af.id_ingreso','=',$id)
             ->first();

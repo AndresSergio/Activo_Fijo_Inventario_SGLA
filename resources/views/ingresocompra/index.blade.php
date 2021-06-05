@@ -19,7 +19,7 @@
                                     <th >ID</th>
                                     <th >N° Documento</th>
                                     <th >Tipo de Documento</th>
-                                    <th >Fecha Reistro</th>                                    
+                                    <th >Fecha Registro</th>                                    
                                     <th >Tipo de Ingreso</th>
                                     <th >Responsable</th>
                                     <th >Estado</th>
@@ -31,7 +31,18 @@
                                     <tr>                                    
                                         <td>{{$ingr->id}}</td>
                                         <td>{{$ingr->numero_doc}}</td>
-                                        <td>{{$ingr->tipo_doc}}</td>
+                                        @if ($ingr->tipo_doc == '1')
+                                        <td>Factura</td>
+                                        
+                                        @endif
+                                        @if ($ingr->tipo_doc == '2')
+                                        <td>Nota de Compra</td>
+                                        
+                                        @endif
+                                        @if ($ingr->tipo_doc == '3')
+                                        <td>Recibo</td>
+                                        
+                                        @endif                                        
                                         <td>{{$ingr->fecha_reg}}</td>                                    
                                         <td>{{$ingr->descripcionsucursal}}</td>
                                         <td>{{$ingr->nombreresponsable}} {{$ingr->apellidoresponsable}}</td>
