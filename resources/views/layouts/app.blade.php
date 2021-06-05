@@ -909,7 +909,34 @@
                                                                 </a>                                                                
                                                             </li>                                                        
                                                         </ul>
-                                                    </li>                                                                                                
+                                                    </li>    
+                                                    <li class="mm-active">
+                                                        <a href="#">
+                                                            <i class="metismenu-icon pe-7s-way"></i>
+                                                            Documentos
+                                                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                                        </a>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="{{url('documentos')}}" class="mm-active">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Solicitud De Activo
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="dashboards-commerce.html">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Asignacion De Activo
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="dashboards-sales.html">
+                                                                    <i class="metismenu-icon"></i>
+                                                                    Respuesta a Solicitud
+                                                                </a>
+                                                            </li>                                                        
+                                                        </ul>
+                                                    </li>                                                                                            
                                                 </ul>
                                             </div>
                                         </div>
@@ -937,6 +964,7 @@
                                                     
                                                     @yield('content')
                                                     @yield('contenido')
+                                                    @yield('documentos')
                                                 </div>
                                             </div>
                                         </div>
