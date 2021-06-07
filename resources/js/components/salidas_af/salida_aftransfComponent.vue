@@ -1,67 +1,58 @@
 <template>
     <div>
-       <div class="col-md-12">
-            <div class="col-md-12 row mr-0">
-                <div class="card-body row ">
-                    <div class="col-md-6">
-                        <div class="form-group" ><!-- {{ $errors->has('origen_suc') ? 'has-error' : ''}} -->
-                            <label for="origen_suc" class="control-label" ><strong>Sucursal de Origen</strong></label>
-                            <select name="origen_suc" id="origen_suc" class="form-control" :class="{'is-invalid':origen_valid}" v-model="origen_suc" ><!-- {{$errors->has('origen_suc')?'is-invalid':''}} -->
-                                 <option v-for="sucursal in sucursales" :value="sucursal.id" :key="sucursal.id">{{sucursal.descripcion}}</option>
-                            </select>                            
-                              <!-- $errors->first('origen_suc', '<p class="form-text text-danger">:message</p>')  -->
-                              <p v-show="origen_valid=='1'" class="form-text text-danger">error</p>
-                        </div>
+       <div class="">
+            <div class="">
+                <div class="card col-md-12">
+                    <div class=" d-flex flex-column flex-md-row ">
+                        
+                            <div class="form-group p-2 col-md-6" ><!-- {{ $errors->has('origen_suc') ? 'has-error' : ''}} -->
+                                <label for="origen_suc" class="control-label" ><strong>Sucursal de Origen</strong></label>
+                                <select name="origen_suc" id="origen_suc" class="form-control" :class="{'is-invalid':origen_valid}" v-model="origen_suc" ><!-- {{$errors->has('origen_suc')?'is-invalid':''}} -->
+                                    <option v-for="sucursal in sucursales" :value="sucursal.id" :key="sucursal.id">{{sucursal.descripcion}}</option>
+                                </select>                            
+                                <!-- $errors->first('origen_suc', '<p class="form-text text-danger">:message</p>')  -->
+                                <!--   <p v-show="verificar_errores('origen_suc')" class="form-text text-danger">error</p> -->
+                            </div>
+                     
+                       
+                            <div class="form-group  p-2 col-md-6"><!-- {{ $errors->has('destino_suc') ? 'has-error' : ''}} -->
+                                <label for="descripcion" class="control-label"><strong>Sucursal de Destino</strong></label>
+                                <select name="destino_suc" id="destino_suc" class="form-control" :class="{'is-invalid':dest_valid}" v-model="destino_suc"><!-- {{$errors->has('destino_suc')?'is-invalid':''}} -->
+                                <option v-for="sucursal in sucursales" :value="sucursal.id" :key="sucursal.id">{{sucursal.descripcion}}</option>
+                                </select>
+                                <!-- {!! $errors->first('destino_suc', '<p class="form-text text-danger">:message</p>') !!} -->
+                            </div>
+                     
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group "><!-- {{ $errors->has('destino_suc') ? 'has-error' : ''}} -->
-                            <label for="descripcion" class="control-label"><strong>Sucursal de Destino</strong></label>
-                            <select name="destino_suc" id="destino_suc" class="form-control" :class="{'is-invalid':dest_valid}" v-model="destino_suc"><!-- {{$errors->has('destino_suc')?'is-invalid':''}} -->
-                               <option v-for="sucursal in sucursales" :value="sucursal.id" :key="sucursal.id">{{sucursal.descripcion}}</option>
-                            </select>
-                            <!-- {!! $errors->first('destino_suc', '<p class="form-text text-danger">:message</p>') !!} -->
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group"><!--  {{ $errors->has('descripcion') ? 'has-error' : ''}} -->
+                    <div class="flex-row">
+                        <div class="form-group p-2 col-md-12"><!--  {{ $errors->has('descripcion') ? 'has-error' : ''}} -->
                             <label for="descripcion" class="control-label"><strong>Descripción</strong></label>
                            <!-- { {$errors->has('descripcion')?'is-invalid':''}} -->
                             <input class="form-control " name="descripcion" type="text" id="descripcion" v-model="descripcion" ><!-- {{ isset($salida_af->descripcion) ? $salida_af->descripcion : old('descripcion')}} -->
                            <!--  {!! $errors->first('descripcion', '<p class="form-text text-danger">:message</p>') !!} -->
                         </div>
                     </div>
-                    
+                    <div class="d-flex flex-column flex-md-row">
+                        <div class="form-group col-md-3">
+                            <label for="" class="control-label"><strong>Cod. Item</strong></label>
+                            <input type="text" class="form-control" id="" >
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="" class="control-label"><strong>Nombre</strong></label>
+                            <input type="text" class="form-control" id="" >
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="" class="control-label"><strong>Clasificación</strong></label>
+                            <input type="text" class="form-control" id="" >
+                        </div>
+                    </div>
                 </div>
             
             </div>
-            <!-- <div class="col-md-12 card"> -->
-                <!-- <fieldset class="form-control row" style=""> -->
-                    
-                        
-                <!-- </fieldset> -->
-            <!-- </div> -->
-            <div class="col-md-12 pt-3">
+            <div class="pt-3 ">
                 <div class="card col-md-12">
-                <div class="card-body">
-                    <h5><strong>ITEMS</strong></h5>
-                        <div class="col-md-12 row">
-                            <div class="col-md-3">
-                                <label for="">Cod. Item</label>
-                                <input type="text" id="codigo" name="codigo_item">
-                            </div>
-                            <div class="col-md-3">
-                                <label for="">Nombre</label>
-                                <input type="text" id="codigo" name="codigo_item">
-                            </div>
-                            <div class="col-md-3">
-                                <label for="">Clasificación</label>
-                                <input type="text" id="codigo" name="codigo_item">
-                            </div>
-                            <div class="col-md-3">
-                                <button @click.prevent="agrgar_items()" class="btn btn-info"> Agregar</button>
-                            </div>
-                        </div>
-                        
+                    <div class="card-body">
+                        <h5><strong>ITEMS</strong></h5>
                         <div class="table-responsive">
                             <table class="mb-0 table">
                                 <thead>
@@ -98,10 +89,9 @@
                             </table>
                         </div>
                     </div>
-                
                 </div>
                 <div class="form-group">
-                    <input class="btn btn-primary" type="submit" value=" crear">
+                    <input class="btn btn-primary" type="submit" @click.prevent="guardar()" value=" crear">
                 </div>
             </div>
             
@@ -114,7 +104,8 @@
 export default {
     props: ['user','suc','token','errores','ori_suc','dest_suc'],
     computed:{
-      
+       
+
     },
     data() {
         return {
@@ -136,24 +127,32 @@ export default {
             }
 		};
 	},
-    /* validations:{
-        origen_suc:{required},
-        destino_suc:{required,sameAsPassword:not(sameAs('origen_suc'))},
-        /* confir_contraseña:{required,sameAsPassword: not(sameAs('contraseña'))}, 
-        validacionform:['origen_suc','destino_suc']
-    }, */
     mounted(){
-        /* this.verificar(); */
+
     },
 	methods: {
-        verificar:function(){
-            /* this.errors.forEach(element => {
-                console.log(element);
-            }); */
+        guardar:function(){
+            let me=this;
+            var url = '/salidas_transferencia'
+                axios.post(url,{
+                origen_suc:me.origen_suc,
+                destino_suc:me.destino_suc,
+                descripcion:me.descripcion,
+                responsable:me.userlogued
+
+                }).then(response=>{  
+                    
+                }).catch(error=>{
+                   
+                    
+                });
         },
-        agrgar_items:function(){
-            console.log("mostrando");
-        }
+         verificar_errores(p1){
+            if (this.errors.hasOwnProperty(p1)) {
+                return true;
+            }
+            return false;
+        } 
     }
     
 }
