@@ -70,11 +70,13 @@
                                     </tr>
                                 </thead>                                        
                                 <tbody>
-                                    <tr>                                    
-                                        <td>{{$detalleingreso->nombreitem}}</td>                                            
-                                        <td>{{$detalleingreso->det_descripcion}}</td>
-                                        <td>{{$detalleingreso->cantidad}}</td>
-                                    </tr>
+                                    @foreach ($detalleingreso as $detalle) 
+                                        <tr>                                    
+                                            <td>{{$detalle->nombreitem}}</td>                                            
+                                            <td>{{$detalle->det_descripcion}}</td>
+                                            <td>{{$detalle->cantidad}}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         

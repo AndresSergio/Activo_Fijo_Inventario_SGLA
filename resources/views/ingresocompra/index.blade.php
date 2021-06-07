@@ -47,49 +47,63 @@
                                         <td>{{$ingr->descripcionsucursal}}</td>
                                         <td>{{$ingr->nombreresponsable}} {{$ingr->apellidoresponsable}}</td>
                                         @if ($ingr->estado == '1')
-                                        <td class="badge badge-danger ml-2 mt-2">Por Ingresar</td>
-                                        @endif
-                                        
-                                        
+                                        <td class="badge badge-danger ml-2 mt-1">Por Ingresar</td>
+                                        @endif                                                                        
                                         <td>
                                             <div class="row no-gutters">
-                                                <div class="col-auto">
-                                                    <a class="btn btn-sm btn-spinner btn-info" role="button" href="ingresocompra/show/{{$ingr->id}}" title="Ver Registro" ><i class="fa fa-eye"></i></a>
-                                                </div>
-                                                {{-- <form class="col" @submit.prevent="deleteItem(item.resource_url)">
-                                                    <button type="submit" class="btn btn-sm btn-danger" title="{{ trans('brackets/admin-ui::admin.btn.delete') }}"><i class="fa fa-trash"></i></button>
-                                                </form> --}}
+                                                <div class="col-auto">                                                
+                                                    <a class="btn btn-sm btn-spinner btn-info" role="button" href="ingresocompra/show/{{$ingr->id}}" title="Ver Registro" >
+                                                        <i class="fa fa-eye"></i>
+                                                    </a> 
+                                                    
+                                                    <a class="btn btn-sm btn-spinner btn-success" id="" data-target="#cambioestado{{$ingr->id}}" role="button"  title="Cambiar Estado" data-toggle="modal"  >
+                                                        <i class="fa fa-retweet" aria-hidden="true"></i>
+                                                    </a>                                                                                                                                                        
+                                                        <div class="modal fade" id="cambioestado{{$ingr->id}}" role="dialog" aria-labelledby="cambioestadoLabel" aria-hidden="true" tabindex="-1">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Cambiar el Estado                                                                
+                                                                        </h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    @include('ingresocompra/cambio',['ingre'=>$ingr])
+                                                                </div>
+                                                            </div>
+                                                        </div> 
+                                                    <a class="btn btn-sm btn-spinner btn-warning" role="button"  title="Ingresar al Almacen" >
+                                                        <i class="fa fa-linux" aria-hidden="true"></i>
+                                                    </a>                                        
+                                                </div>                                                                                                
                                             </div>
+                                             
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
-                        </table>                         
+                            
+                        </table>   
+                                             
                     </div>
                     {{$ingreso->links()}} 
                 </div>
             </div>        
         </div>        
     </div>
-    
-@endsection
-@section('js')
-<script type="text/javascript" src="{{ asset('template/vendors/bootstrap-table/dist/bootstrap-table.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('template/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('template/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-<!-- custome.js -->
-<script type="text/javascript" src="{{ asset('/template/js/tables.js') }}"></script>
-
-<script>
-    $(document).ready(function(){
-        $('#example').DataTable({
-        responsive:true,
-        autoWidth: false,
-        "languaje":{
-            "url": "https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
-            }
+    <script>
+        $(document).ready(function () {
+            $('#reco').on('input change', function () {
+                if ($(this).val() != '') {
+                    $('#submit').prop('disabled', false);
+                }
+                else {
+                    $('#submit').prop('disabled', true);
+                }
+            });
         });
-    });
-    
-</script>
+    </script>
 @endsection
+
+

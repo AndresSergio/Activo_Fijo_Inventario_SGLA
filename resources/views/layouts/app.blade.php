@@ -997,7 +997,7 @@
                                                     
                                                     @yield('content')
                                                     @yield('contenido')
-                                                    @yield('documentos')
+                                                    {{-- @yield('documentos') --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -1006,10 +1006,10 @@
                             </div>                                                                                                                    
                         @endguest                    
                     {{-- </ul> --}}
-        <!-- <main class="py">
+        <main class="py"> {{-- no modificar esto es del login --}}
             
             @yield('content')
-        </main>  -->
+        </main> 
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- <script type="text/javascript" src="{{ asset('template/vendors/jquery/dist/jquery.min.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('template/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

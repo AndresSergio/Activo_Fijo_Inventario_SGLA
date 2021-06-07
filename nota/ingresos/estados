@@ -1,0 +1,3 @@
+estado = 1 "por ingresar",
+estado = 2 "inhabilitado",
+estado = 3 "ingresado"

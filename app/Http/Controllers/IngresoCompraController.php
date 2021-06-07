@@ -135,7 +135,7 @@ class IngresoCompraController extends Controller
         $detalleingreso = DetalleIngreso::select('detalle_ingr_af.*','ia.nombre as nombreitem')
             ->join('item_af as ia','ia.id','=','detalle_ingr_af.id_item')
             ->where('detalle_ingr_af.id_ingreso','=',$id)
-            ->first();
+            ->get();
         
         //dd($detalleingreso);
         return view('ingresocompra.show',['ingreso'=>$ingreso, 'detalleingreso'=>$detalleingreso]);
@@ -173,5 +173,22 @@ class IngresoCompraController extends Controller
     public function destroy(IngresoCompra $ingresoCompra)
     {
         //
+    }
+
+    public function cambioestado(IngresoCompra $ingreso)
+    {
+        # code...
+        $valor = $ingreso->estado;
+
+        if($valor == '1'){
+
+            $ingreso->update(['estado' => '3']);
+            return redirect()->route('equipomateriales.index')->with('status','Se acaba de actualizar el estado a Inhabilitado');
+        }
+        else{
+            $ingreso->update(['estado' => '1']);
+            return redirect()->route('equipomateriales.index')->with('status','Se acaba de actualizar el estado a activo');
+        }
+
     }
 }
