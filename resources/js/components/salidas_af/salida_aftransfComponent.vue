@@ -30,13 +30,38 @@
                            <!--  {!! $errors->first('descripcion', '<p class="form-text text-danger">:message</p>') !!} -->
                         </div>
                     </div>
+                    
                 </div>
             
             </div>
+            <!-- <div class="col-md-12 card"> -->
+                <!-- <fieldset class="form-control row" style=""> -->
+                    
+                        
+                <!-- </fieldset> -->
+            <!-- </div> -->
             <div class="col-md-12 pt-3">
                 <div class="card col-md-12">
                 <div class="card-body">
-                        <h5><strong>ITEMS</strong></h5>
+                    <h5><strong>ITEMS</strong></h5>
+                        <div class="col-md-12 row">
+                            <div class="col-md-3">
+                                <label for="">Cod. Item</label>
+                                <input type="text" id="codigo" name="codigo_item">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="">Nombre</label>
+                                <input type="text" id="codigo" name="codigo_item">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="">Clasificación</label>
+                                <input type="text" id="codigo" name="codigo_item">
+                            </div>
+                            <div class="col-md-3">
+                                <button @click.prevent="agrgar_items()" class="btn btn-info"> Agregar</button>
+                            </div>
+                        </div>
+                        
                         <div class="table-responsive">
                             <table class="mb-0 table">
                                 <thead>
@@ -126,6 +151,9 @@ export default {
                 console.log(element);
             }); */
         },
+        agrgar_items:function(){
+            console.log("mostrando");
+        }
     }
     
 }
