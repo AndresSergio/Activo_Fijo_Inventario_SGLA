@@ -29,13 +29,13 @@
                         <input type="text" id="id_tipo_ingr" name="id_tipo_ingr" value="{{ $ingreso->id_tipo_ingr }}"  class="form-control" >
                     </div>
                 </div> --}}
-                <div class="col-lg-2 col-sm-3 col-md-3 col-xs-12"  >
+                <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12"  >
                     <div class="form-group">
                         <label for="id_sucursal">Sucursal</label>
                         <input type="text" id="id_sucursal" name="id_sucursal" disabled value="{{ $ingreso->descripcionsucursal }}"  class="form-control" >
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-3 col-md-3 col-xs-12">
+                <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
                     <div class="form-group">
                         <label>Tipo de Documento</label>
                         @if ($ingreso->tipo_doc == '1')
@@ -49,7 +49,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-3 col-md-3 col-xs-12" >
+                <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12" >
                     <div class="form-group">
                         <label for="id_responsable">Responsable</label>
                         <input type="text" id="id_responsable" name="id_responsable" disabled value="{{ $ingreso->nombrerespo }}"  class="form-control" >
@@ -70,20 +70,17 @@
                                     </tr>
                                 </thead>                                        
                                 <tbody>
-                                    <tr>                                    
-                                        <td >{{$}}</td>                                            
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                    @foreach ($detalleingreso as $detalle) 
+                                        <tr>                                    
+                                            <td>{{$detalle->nombreitem}}</td>                                            
+                                            <td>{{$detalle->det_descripcion}}</td>
+                                            <td>{{$detalle->cantidad}}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-3 col-md-3 col-xs-12">
-                    <div class="form-group" >                                                
-                        <button class="btn btn-danger" type="reset">Cancelar</button>                                
                     </div>
                 </div>
             </div>  

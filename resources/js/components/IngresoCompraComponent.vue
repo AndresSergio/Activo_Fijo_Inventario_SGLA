@@ -9,17 +9,15 @@
                         <li v-for="error in errors" v-bind:key="error">{{error}}</li>
                     </ul>
                 </div>
-                <div class="alert alert-success" v-if='mensaje_c != ""? true: false' >
+                <!-- <div class="alert alert-success" v-if='mensaje_c != ""? true: false' >
                     
                         <h2>{{mensaje_c}}</h2>
                     
-                </div>
+                </div> -->
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
-                <a href="/ingresocompra">
-                    <button class="mb-2 mr-2 btn-icon btn-shadow btn-outline-2x btn btn-outline-secondary" > 
-                        <i class="lnr-arrow-left btn-icon-wrapper"> </i> Volver
-                    </button>   
+                <a href="/ingresocompra" class="mb-2 mr-2 btn-icon btn-shadow btn-outline-2x btn btn-outline-secondary" >                    
+                        <i class="lnr-arrow-left btn-icon-wrapper"> </i> Volver                    
                 </a>        
             </div>
         </div>

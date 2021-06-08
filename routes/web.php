@@ -37,6 +37,7 @@ Route::post('ingresocompra', 'IngresoCompraController@store')->name('ingresocomp
 Route::get('ingresocompra', 'IngresoCompraController@index')->name('ingresocompra.index');
 Route::get('ingresocompra/create', 'IngresoCompraController@create')->name('ingresocompra.create');
 Route::get('ingresocompra/show/{id}', 'IngresoCompraController@show')->name('ingresocompra.show');
+Route::put('ingresocompra/{ingreso}/estado','IngresoCompraController@cambioestado')->name('ingresocompra.estado');
 
 
 
