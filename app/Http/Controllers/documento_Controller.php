@@ -16,11 +16,19 @@ class documento_Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // pasar el select a los documentos en lugar de un homa mundo
-        $documento = 'hola mundo';
-        return view('documentos.index', compact('documento'));
+        $keyword = $request->get('search');
+        $documento = documento_af::select('documento_af.*','TD_af.nombre as tdnombre','RE_af.nombre as renombre','SE_af.nombre as senombre','AR_af.nombre as arnombre')
+        ->join('tipo_documento_af as TD_af','TD_af.id','=','documento_af.id_tipo_doc')
+        ->join('responsable_af as RE_af','RE_af.id','=','documento_af.id_trabajador')
+        ->join('sector_af as SE_af','SE_af.id','=','RE_af.id_sector')
+        ->join('area_af as AR_af','AR_af.id','=','SE_af.id_area')
+        ->where('documento_af.estado','=','1')
+        ->paginate(10);
+        //dd($documento);
+        return view('documentos.index', ['documento'=>$documento]);
     }
 
     /**
@@ -53,7 +61,7 @@ class documento_Controller extends Controller
 
             $documento=new documento_af;
             $documento->id_responsable = $request->area_IDencargado;
-            $documento->id_trabajador = $request->id_colaborador;
+            $documento->id_trabajador = $request->colaborador_ci;
             $documento->id_tipo_doc = $request->id_tipo_doc;
 
             $mytime = Carbon::now('America/La_Paz');
