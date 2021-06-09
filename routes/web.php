@@ -25,12 +25,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /* solicitud y asignacion de activos */
 Route::get('documentos', 'documento_Controller@index');
-Route::get('documentos.nuevo', 'documento_Controller@create');
-Route::get('obtener_itens', 'documento_Controller@get_itens');
+Route::get('documentos/nuevo', 'documento_Controller@create');
+Route::get('documentos/obtener_itens', 'documento_Controller@get_itens');
+Route::get('Asignacion/nuevo/obtener_itens', 'documento_Controller@get_itens');
 Route::get('obtener_areas', 'documento_Controller@get_area');
 Route::get('obtener_sectores', 'documento_Controller@get_sector');
-Route::get('Colaboradoes', 'documento_Controller@get_colaboradores');
+Route::get('documentos/Colaboradoes', 'documento_Controller@get_colaboradores');
 Route::post('insertarDocumento', 'documento_Controller@insert_documento');
+Route::get('Asignacion/nuevo/{id}', 'documento_Controller@cargar_asignacion');
 
 /* Route::resource('ingresocompra', 'IngresoCompraController'); */
 Route::post('ingresocompra', 'IngresoCompraController@store')->name('ingresocompra.store');

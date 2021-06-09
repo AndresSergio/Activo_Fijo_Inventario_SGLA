@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Builder\Function_;
 
 class documento_Controller extends Controller
 {
@@ -16,11 +17,11 @@ class documento_Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         // pasar el select a los documentos en lugar de un homa mundo
-        $keyword = $request->get('search');
-        $documento = documento_af::select('documento_af.*','TD_af.nombre as tdnombre','RE_af.nombre as renombre','SE_af.nombre as senombre','AR_af.nombre as arnombre')
+
+        $documento = documento_af::select('documento_af.id as id','documento_af.fecha_entrega as entrega','documento_af.fecha_creacion as creacion','TD_af.nombre as tdnombre','RE_af.nombre as renombre','SE_af.nombre as senombre','AR_af.nombre as arnombre')
         ->join('tipo_documento_af as TD_af','TD_af.id','=','documento_af.id_tipo_doc')
         ->join('responsable_af as RE_af','RE_af.id','=','documento_af.id_trabajador')
         ->join('sector_af as SE_af','SE_af.id','=','RE_af.id_sector')
@@ -67,14 +68,14 @@ class documento_Controller extends Controller
             $mytime = Carbon::now('America/La_Paz');
             $documento->fecha_creacion=$mytime->toDateTimeString();
 
-            $documento->fecha_entrega = $request->fecha_entrega;
             $documento->descripcion = $request->descripcion;
             $documento->directorio = 'pueba.pdf';
             $documento->save();
 
             $respuesta = $documento->id;
-            DB::commit();
             
+            DB::commit();
+            //dd($documento);
         } catch (\Throwable $th) {
             //throw $th;
             DB::rollback();
@@ -83,8 +84,8 @@ class documento_Controller extends Controller
         return ['id'=>$respuesta];
     }
 
-    public function get_colaboradores(request $request){
-        $codigo = $request->get('search');
+    public function get_colaboradores(){
+        //$codigo = $request->get('search');
         $perPage = 10;
 
         $select_colaboradores = responsable_af::join('sector_af as sec','sec.id','=','responsable_af.id_sector')
@@ -125,66 +126,25 @@ class documento_Controller extends Controller
 
     public function get_itens(){
         $select_iten = DB::table('almacen_activo_af')
-        ->select('id','foto')
+        ->select('id','foto','serie')
         ->where('estado','=','1')
         ->orderBy('foto')
         ->get();
         return ['getIten'=>$select_iten];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public Function cargar_asignacion($id_doc){
+        $solicitud = documento_af::select('documento_af.*','RE_af.nombre as renombre','SE_af.nombre as senombre','AR_af.nombre as arnombre')
+        ->join('responsable_af as RE_af','RE_af.id','=','documento_af.id_trabajador')
+        ->join('sector_af as SE_af','SE_af.id','=','RE_af.id_sector')
+        ->join('area_af as AR_af','AR_af.id','=','SE_af.id_area')
+        ->where('documento_af.estado','=','1')
+        ->where('documento_af.id','=',$id_doc)
+        ->get()
+        ->toArray();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $usuid = Auth::user();
+        return view('documentos.documento_asignacion', ['solicitud'=>$solicitud,'usuid'=>$usuid]);
+        dd($usuid,$solicitud);
     }
 }

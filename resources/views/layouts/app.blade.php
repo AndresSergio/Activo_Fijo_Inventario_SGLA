@@ -951,7 +951,7 @@
                                                         </a>
                                                         <ul>
                                                             <li>
-                                                                <a href="{{url('documentos')}}" class="mm-active">
+                                                                <a href="{{url('documentos')}}">
                                                                     <i class="metismenu-icon"></i>
                                                                     Solicitud De Activo
                                                                 </a>
@@ -997,7 +997,7 @@
                                                     
                                                     @yield('content')
                                                     @yield('contenido')
-                                                    {{-- @yield('documentos') --}}
+                                                    @yield('documentos')
                                                 </div>
                                             </div>
                                         </div>
