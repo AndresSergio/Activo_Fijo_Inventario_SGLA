@@ -27,6 +27,7 @@ Vue.component('salidatransf-component', require('./components/salidas_af/salida_
 Vue.component('ingresocompra-component', require('./components/ingresos_af/IngresoCompraComponent.vue').default);
 Vue.component('register-component', require('./components/Auth/registerComponent.vue').default);
 Vue.component('documentonuevo-component', require('./components/DocumentoNuevoComponent.vue').default);
+Vue.component('documentasignacion-component', require('./components/DocumentoAsignacionComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

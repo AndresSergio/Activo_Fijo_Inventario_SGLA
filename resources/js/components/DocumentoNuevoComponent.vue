@@ -37,6 +37,53 @@
                             </div>
                         </div>
                     </div> -->
+
+                    <div class="card-body dt-table table-responsive">
+                            <table class="table table-hover table-striped" >
+                                <thead>
+                                    <tr>
+                                        <th>Obciones</th>
+                                        <th>Nombre Completo</th>
+                                        <th>CI</th>
+                                        <th>Telefono</th>
+                                        <th>Sector</th>
+                                        <th>Area</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(colaborador,key) in colaboradores" :key="key">
+                                        <td>
+                                            <button type="button" class="btn btn-icon btn-outline-primary" data-toggle="modal" 
+                                            @click.prevent="rellenar_frm(colaborador.id,colaborador.nombre,colaborador.ci,colaborador.sec_nom,colaborador.sec_id,colaborador.are_nom,colaborador.are_id)">
+                                            Solicitar</button>
+                                        </td>
+                                        <td>{{colaborador.nombre+colaborador.apellido}}</td>
+                                        <td>{{colaborador.ci}}</td>
+                                        <td>{{colaborador.telefono}}</td>
+                                        <td>{{colaborador.sec_nom}}</td>
+                                        <td>{{colaborador.are_nom}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <nav class="pagination" >   <!-- v-show="!isEmpty" -->
+                                <li v-if="paginate.current_page>1" class="page-item active">
+                                    <a href="#" class="page-link " @click.prevent="changePage(paginate.current_page-1)">
+                                        <span >Atras</span>
+                                    </a>
+                                </li>
+                                <li v-for="page in pagesNumber" class="page-item" :key="page.id" :class="[ page == isActive ? 'active':'']">
+                                    <a href="#" class="page-link" @click.prevent="changePage(page)">
+                                        {{page}}
+                                    </a>
+                                </li>
+                                <li class="page-item active" v-if="paginate.current_page<paginate.last_page">
+                                    <a href="#" class="page-link" @click.prevent="changePage(paginate.current_page+1)">
+                                        <span >Siguiente</span>
+                                    </a>
+                                </li>
+                            </nav>
+                        </div>
+
                     <div class="card-body">
                         <form accept-charset="UTF-8" enctype="multipart/form-data" id="formulario" hidden>
                             <input type="hidden" name="_token" :value="csrf" >
@@ -104,12 +151,6 @@
                                                     <option value="3">Respuesta</option>                                  
                                                 </select> 
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6 col-sm-3 col-md-3 col-xs-12">
-                                            <div class="form-group">
-                                                <label>Fecha de Entrega:</label>
-                                                <input type="date" name="fecha_ini" class="form-control selectpicker" v-model="fecha_entrega" min="2021-01-00T00:00">
-                                            </div>
                                         </div>   
                                     </div>
                                     <div class="row">
@@ -130,7 +171,7 @@
                                                 <select class="form-control selectpicker" v-model="id_iten">
                                                     <option value="0" selected disabled>seleccione...</option>
                                                     <option v-for="option in options_iten " :key="option.value" v-bind:value="option.id">
-                                                        {{ option.foto }}
+                                                        {{ option.serie+' - '+option.foto }}
                                                     </option>
                                                 </select>
                                             </div>    
@@ -162,7 +203,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="col-lg-6 col-sm-3 col-md-3 col-xs-12"> <!-- v-if="articulos.length > 0" -->
+                                    <div class="col-lg-6 col-sm-3 col-md-3 col-xs-12" > <!-- v-if="articulos.length > 0" -->
                                         <div class="form-group" >
                                             <button class="btn btn-primary" @click.prevent="insertar_maestro()">Guardar</button>
                                             <button class="btn btn-danger" type="reset" @click.prevent="ocultar_frm()">Cancelar</button>                                
@@ -172,51 +213,6 @@
                             </div>                
                         </form>
 
-                        <div class="card-body dt-table table-responsive">
-                            <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Obciones</th>
-                                        <th>Nombre Completo</th>
-                                        <th>CI</th>
-                                        <th>Telefono</th>
-                                        <th>Sector</th>
-                                        <th>Area</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="(colaborador,key) in colaboradores" :key="key">
-                                        <td>
-                                            <button type="button" class="btn btn-icon btn-outline-primary" data-toggle="modal" 
-                                            @click.prevent="rellenar_frm(colaborador.id,colaborador.nombre,colaborador.ci,colaborador.sec_nom,colaborador.sec_id,colaborador.are_nom,colaborador.are_id)">
-                                            Solicitar</button>
-                                        </td>
-                                        <td>{{colaborador.nombre+colaborador.apellido}}</td>
-                                        <td>{{colaborador.ci}}</td>
-                                        <td>{{colaborador.telefono}}</td>
-                                        <td>{{colaborador.sec_nom}}</td>
-                                        <td>{{colaborador.are_nom}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <nav class="pagination" >   <!-- v-show="!isEmpty" -->
-                                <li v-if="paginate.current_page>1" class="page-item active">
-                                    <a href="#" class="page-link " @click.prevent="changePage(paginate.current_page-1)">
-                                        <span >Atras</span>
-                                    </a>
-                                </li>
-                                <li v-for="page in pagesNumber" class="page-item" :key="page.id" :class="[ page == isActive ? 'active':'']">
-                                    <a href="#" class="page-link" @click.prevent="changePage(page)">
-                                        {{page}}
-                                    </a>
-                                </li>
-                                <li class="page-item active" v-if="paginate.current_page<paginate.last_page">
-                                    <a href="#" class="page-link" @click.prevent="changePage(paginate.current_page+1)">
-                                        <span >Siguiente</span>
-                                    </a>
-                                </li>
-                            </nav>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -309,7 +305,7 @@
 
             insertar_maestro:function(){
                 let me=this;
-                axios.post( 'insertarDocumento',{
+                axios.post( '/insertarDocumento',{
                     area_IDencargado:this.encargado_area['id'],//---
                     area_NAMEencargado:this.encargado_area['name'],
                     colaborador_name:this.colaborador,
@@ -384,7 +380,7 @@
 
             agregar(){
                 let me=this;
-                var url = '/ingresocompra'
+                var url = '/'
                 axios.post(url,{
                 numero_doc:me.numero_doc,
                 id_tipo_ingr:me.id_tipo_ingr,
