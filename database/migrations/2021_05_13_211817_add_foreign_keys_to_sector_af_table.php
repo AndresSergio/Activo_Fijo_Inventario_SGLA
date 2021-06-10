@@ -15,6 +15,7 @@ class AddForeignKeysToSectorAfTable extends Migration
     {
         Schema::table('sector_af', function (Blueprint $table) {
             $table->foreign('id_area', 'sector_af_ibfk_1')->references('id')->on('area_af')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('cod_suc', 'sector_af_ibfk_2')->references('id')->on('sucursal_af')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 
@@ -27,6 +28,7 @@ class AddForeignKeysToSectorAfTable extends Migration
     {
         Schema::table('sector_af', function (Blueprint $table) {
             $table->dropForeign('sector_af_ibfk_1');
+            $table->dropForeign('sector_af_ibfk_2');
         });
     }
 }

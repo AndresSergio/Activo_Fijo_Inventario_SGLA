@@ -2,46 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
+
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller
+class RegisterUserController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
-    /**
+       /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -55,17 +27,14 @@ class RegisterController extends Controller
             'ci' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
-    }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-       /*  dd($data['nombre']); */
+    }
+    
+    function create(Request $request) /* metodo  que registra un nuevo usuario */
+    {    
+        $this->validator($request->all())->validate();
+        $data=$request;
+        /*  dd($data['nombre']); */
         switch ($data['tipo_resp_id']) {
             case '1':
                 $data['sector_id']=1;
@@ -78,7 +47,7 @@ class RegisterController extends Controller
                 break;
         }
         User::create([
-   
+
             'nombre' => strtoupper($data['nombre']),
             'apellido' => strtoupper($data['apellido']),
             'email' => $data['email'],
@@ -93,6 +62,12 @@ class RegisterController extends Controller
         ]);
 
 
-        return back()->with('nuevo_miembro', 'Registrado exitosamente!');
+        return ['mensaje'=>'Registrado Correctamente',
+                'estado'=>true];
     }
+    public function show()
+    {
+        return view('auth.register');
+    }
+    
 }

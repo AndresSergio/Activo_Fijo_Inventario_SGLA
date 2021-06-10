@@ -39,11 +39,16 @@
                     
                         <!-- Authentication Links -->
                         @guest
-                             {{-- <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>  --}}                    
+                        <div id="app">
+                            <div class="">
+                                <main class="py"> {{-- no modificar esto es del login --}}
+            
+                                    @yield('content')
+                                </main>     
+                            </div>
+                        </div>              
                         @else
-                            {{-- <li class="nav-item dropdown">
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -59,7 +64,7 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>  --}}   
+                            </li>     
                             <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
                                 <div class="app-header header-shadow">
                                     <div class="app-header__logo">
@@ -1006,10 +1011,7 @@
                             </div>                                                                                                                    
                         @endguest                    
                     {{-- </ul> --}}
-        <main class="py"> {{-- no modificar esto es del login --}}
-            
-            @yield('content')
-        </main> 
+        
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- <script type="text/javascript" src="{{ asset('template/vendors/jquery/dist/jquery.min.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('template/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

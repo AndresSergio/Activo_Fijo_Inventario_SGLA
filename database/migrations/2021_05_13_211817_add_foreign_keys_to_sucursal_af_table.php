@@ -15,7 +15,6 @@ class AddForeignKeysToSucursalAfTable extends Migration
     {
         Schema::table('sucursal_af', function (Blueprint $table) {
             $table->foreign('id_empresa', 'sucursal_af_ibfk_1')->references('id')->on('empresa_af')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('id_departamento', 'sucursal_af_ibfk_2')->references('id')->on('departamento_af')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 
@@ -28,7 +27,6 @@ class AddForeignKeysToSucursalAfTable extends Migration
     {
         Schema::table('sucursal_af', function (Blueprint $table) {
             $table->dropForeign('sucursal_af_ibfk_1');
-            $table->dropForeign('sucursal_af_ibfk_2');
         });
     }
 }

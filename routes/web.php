@@ -22,6 +22,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/registrar', 'Auth\RegisterUserController@create');
+Route::get('/registrar', 'Auth\RegisterUserController@show');
 
 /* solicitud y asignacion de activos */
 Route::get('documentos', 'documento_Controller@index');
@@ -52,11 +54,17 @@ Route::resource('calificacion_acti_af', 'calificacion_acti_afController');
 /* Route::resource('marca_af', 'marca_afController'); */
 Route::resource('marca_af', 'marca_afController');
 Route::resource('modelo_af', 'modelo_afController');
-Route::resource('sector_af', 'sector_afController');
 Route::resource('sucursal_af', 'sucursal_afController');
-Route::resource('area_af', 'area_afController');
-Route::resource('turno_af', 'turno_afController');
 Route::resource('responsable_af', 'responsable_afController');
+
+
+Route::get('get_turno','turno_afController@get_turno');
+Route::resource('turno_af', 'turno_afController');
+Route::get('get_area','area_afController@get_area');
+Route::resource('area_af', 'area_afController');
+Route::get('get_sector','sector_afController@get_sector');
+Route::resource('sector_af', 'sector_afController');
+Route::get('get_tipo_resp','tipo_resp_afController@get_tipo_resp');
 Route::resource('tipo_resp_af', 'tipo_resp_afController');
 
 

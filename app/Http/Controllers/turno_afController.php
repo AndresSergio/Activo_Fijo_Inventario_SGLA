@@ -33,6 +33,11 @@ class turno_afController extends Controller
 
         return view('turno_af.index', compact('turno_af'));
     }
+    public function get_turno()
+    {
+        $turno_af = turno_af::get();
+        return ['turnos'=>$turno_af];
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -34,6 +34,11 @@ class sector_afController extends Controller
 
         return view('sector_af.index', compact('sector_af'));
     }
+    public function get_sector()
+    {
+        $sector_af = sector_af::get();
+        return ['sectores'=>$sector_af];
+    }
 
     /**
      * Show the form for creating a new resource.

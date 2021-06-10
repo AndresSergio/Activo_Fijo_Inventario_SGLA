@@ -25,7 +25,8 @@ class IngresoCompraController extends Controller
         ->join('sucursal_af as saf','saf.id','=','ingreso_af.id_sucursal')
         ->join('responsable_af as raf','raf.id','=','ingreso_af.id_responsable')
         ->join('tipo_ingreso_af as tiaf','tiaf.id','=','ingreso_af.id_tipo_ingr')
-        ->where('tiaf.id','=','1')        
+        ->where('tiaf.id','=','1')
+        ->orderBy('id','DESC')        
         ->paginate(10);
         return view('ingresocompra.index', compact('ingreso'));
     }
@@ -103,12 +104,17 @@ class IngresoCompraController extends Controller
                 $cont=$cont+1;  
             } */
             DB::commit();
-            return ['mensaje_c'=>'Ingreso de Compra registrada!'];
+            return [
+                    'mensaje_c'=>'Ingreso de Compra registrada!',
+                    'estado_c'=>true
+                    ];
         }
         catch(\Exception $e)
         {
             DB::rollback();
-            return ['mensaje_c2'=>'Ingreso de Compra Fallida!'];
+            return ['mensaje_c2'=>'Ingreso de Compra Fallida!',
+                    'estado_c'=>true
+                    ];
         }
         
         /* return redirect()->route('ingresocompra.index')->with('flash_message', 'Ingreso de Compra registrada!'); */

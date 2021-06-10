@@ -17,6 +17,7 @@ class CreateSectorAfTable extends Migration
             $table->integer('id', true);
             $table->char('codigo', 15)->unique('codigo');
             $table->integer('id_area')->index('id_area');
+            $table->integer('cod_suc')->index('cod_suc');
             $table->string('nombre', 25);
             $table->string('descripcion', 50);
             $table->smallInteger('estado')->nullable()->default(1);

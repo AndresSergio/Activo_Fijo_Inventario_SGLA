@@ -9,11 +9,11 @@
                         <li v-for="error in errors" v-bind:key="error">{{error}}</li>
                     </ul>
                 </div>
-                <!-- <div class="alert alert-success" v-if='mensaje_c != ""? true: false' >
+                <div class="alert alert-success" v-if="estado_c" >
                     
-                        <h2>{{mensaje_c}}</h2>
+                        <h2>{{mensaje}}</h2>
                     
-                </div> -->
+                </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
                 <a href="/ingresocompra" class="mb-2 mr-2 btn-icon btn-shadow btn-outline-2x btn btn-outline-secondary" >                    
@@ -210,6 +210,7 @@
                 cantidad_v: false,
 
                 mensaje: '',
+                estado_c: false,
 
 
             } 
@@ -231,20 +232,24 @@
 
                 }).then(response=>{  
                     me.mensaje = response.data.mensaje_c;
+                    me.estado_c = response.data.estado_c;
+                    me.limpiar();
+                    me.limpiar_articulos();
+                    
                 }).catch(error=>{
-                    console.log(error.response.data.mensaje_c2);
+                    me.mensaje = error.response.data.mensaje_c2;
+                    me.estado_c = error.response.data.estado_c;
+                  /*   console.log(error.response.data.mensaje_c2); */
+                    me.limpiar();
+                     me.limpiar_articulos();
                     
                 });
-                
-                
                 this.validaciones();
-
             },
 
             validacion_d(){
 
                 let me = this;
-
                 if (me.iditem_v ) {
                     me.iditem_v = false;
                 }
@@ -254,11 +259,11 @@
                 if (me.cantidad_v) {
                     me.cantidad_v = false;
                 }
-                            
             },
 
             agregar_articulo:function () {
               let me = this;
+              me.estado_c=false;
               
               if (me.iditem &&  me.descripcion && me.cantidad > 0 ) {
                     this.articulos.push({
@@ -290,6 +295,11 @@
                 this.iditem ="",
                 this.descripcion = "",
                 this.cantidad = 1
+            },
+            limpiar_articulos(){
+                this.numero_doc= "" , 
+                this.id_tipo_ingr="1",
+                this.articulos=[]
 
             },
 

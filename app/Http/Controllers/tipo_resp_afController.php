@@ -32,6 +32,11 @@ class tipo_resp_afController extends Controller
 
         return view('tipo_resp_af.index', compact('tipo_resp_af'));
     }
+    public function get_tipo_resp()
+    {
+        $tipo_resp_af = tipo_resp_af::get();
+        return['tipo_resp'=>$tipo_resp_af];
+    }
 
     /**
      * Show the form for creating a new resource.
