@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->dropTable([
+            'tipo_documento_af',
             'calificacion_acti_af',
             'marca_af',
             'modelo_af',
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'empresa_af' 
            
         ]);
+         $this->call(tipo_docSeeder::class);
          $this->call(clasificacion_activoSeeder::class);
          $this->call(marcaSeeder::class);
          $this->call(modeloSeeder::class);

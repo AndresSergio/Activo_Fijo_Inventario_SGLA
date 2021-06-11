@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('tipo_resp')->references('id')->on('tipo_resp_af');
+            
             $table->foreign('id_sector')->references('id')->on('sector_af');
             $table->foreign('id_turno')->references('id')->on('turno_af');
         });

@@ -813,12 +813,12 @@
                                                                     </li>
                                                                 </ul> -->
                                                             </li>
-                                                            <!-- <li>
+                                                            <li>
                                                                 <a href="{{url('/item_af')}}">
                                                                     <i class="metismenu-icon"></i>
                                                                     Items
                                                                 </a>
-                                                            </li> -->
+                                                            </li>
                                                             <li>
                                                                 <a href="{{url('/calificacion_acti_af')}}">
                                                                     <i class="metismenu-icon"></i>

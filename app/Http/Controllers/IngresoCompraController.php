@@ -112,7 +112,7 @@ class IngresoCompraController extends Controller
         catch(\Exception $e)
         {
             DB::rollback();
-            return ['mensaje_c2'=>'Ingreso de Compra Fallida!',
+            return ['mensaje_c2'=>'Ingreso de Compra Fallida!'.$e,
                     'estado_c'=>true
                     ];
         }
