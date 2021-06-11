@@ -10,7 +10,18 @@
                 <div class="card-header">
                     <i class="fa fa-align-justify"></i> Ingreso por Compra &nbsp;
                     <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('ingresocompra/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; Nuevo Ingreso</a>
+                    @if(session()->get('cargado'))
+                        <div class="alert alert-success mx-auto">
+                            <h6 class="alert-heading">{{ session()->get('cargado') }}</h6>
+                        </div>
+                    @endif
+                    @if(session()->get('carga_fallida'))
+                        <div class="alert alert-warning mx-auto">
+                            <h6 class="alert-heading">{{ session()->get('carga_fallida') }}</h6>
+                        </div>
+                    @endif
                 </div>
+               
                 <div class="card-body" v-cloak>
                     <div class="card-block">
                         <table class="table table-hover table-striped table-bordered" >
@@ -49,6 +60,9 @@
                                         @if ($ingr->estado == '1')
                                         <td class="badge badge-danger ml-2 mt-1">Por Ingresar</td>
                                         @endif                                                                        
+                                        @if ($ingr->estado == '2')
+                                        <td class="badge badge-primary ml-2 mt-1">En Almacén</td>
+                                        @endif                                                                        
                                         <td>
                                             <div class="row no-gutters">
                                                 <div class="col-auto">                                                
@@ -73,9 +87,11 @@
                                                                 </div>
                                                             </div>
                                                         </div> 
-                                                    <a class="btn btn-sm btn-spinner btn-warning" role="button"  title="Ingresar al Almacen" >
-                                                        <i class="fa fa-linux" aria-hidden="true"></i>
-                                                    </a>                                        
+                                                    @if ($ingr->estado == '1')    
+                                                    <a class="btn btn-sm btn-spinner btn-warning" href="ingresocompra/alm/{{$ingr->id}}" role="button"  title="Ingresar al Almacen" >
+                                                        <i class="fa fa-boxes" aria-hidden="true"></i>
+                                                    </a>
+                                                    @endif                                        
                                                 </div>                                                                                                
                                             </div>
                                              

@@ -16,7 +16,7 @@ class CreateAlmacenActivoAfTable extends Migration
         Schema::create('almacen_activo_af', function (Blueprint $table) {
             $table->integer('id', true);
             $table->char('codigo_item', 15);
-            $table->char('serie', 25);
+            $table->char('serie', 25)->index('serie');
             $table->smallInteger('observacion');
             $table->string('foto', 150);
             $table->integer('id_det_ingreso')->index('id_det_ingreso');

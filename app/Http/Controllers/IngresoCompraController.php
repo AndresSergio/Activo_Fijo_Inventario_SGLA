@@ -6,6 +6,7 @@ use App\DetalleIngreso;
 use App\Http\Requests\IngresoCompraRequest;
 use App\IngresoCompra as IngresoCompra;
 use App\Models\sucursal_af;
+use App\Models\almacen_activo_af;
 use App\TipoIngresoAF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -47,6 +48,50 @@ class IngresoCompraController extends Controller
         
         return view('ingresocompra.create',["items"=>$items]);
     }
+    public function ingreso_alm_compra(Request $request)
+    {
+     
+        try {
+            DB::beginTransaction();  
+            $id=$request->id;
+            $ingreso = IngresoCompra::where('estado',1)->where('id',$id)->first();
+            $update_ingreso=IngresoCompra::where('estado',1)->where('id',$id)->update(['estado' => 2]);
+
+            if ($ingreso) {
+                $detalleingreso = DetalleIngreso::select('detalle_ingr_af.*','ia.nombre as nombreitem')
+                ->join('item_af as ia','ia.id','=','detalle_ingr_af.id_item')
+                ->where('detalle_ingr_af.id_ingreso','=',$id)
+                ->get();
+               
+                foreach ($detalleingreso as $key => $value) {
+                        $lastid=DB::select('SELECT MAX(serie) As se from almacen_activo_af ');          //obtengo la serie
+                        $last_serie=($lastid[0]->se);                                                   //declaro mejor la variable
+                        if (empty($last_serie)) {
+                            $last_serie='1001';                                                          //serie a elejir cambiar a gusto
+                        }
+                    for ($i=0; $i <(int)$value->cantidad ; $i++) { 
+                        $last_serie=(int)$last_serie+1;
+                        $alm = almacen_activo_af::create([
+                            'codigo_item'=>$value->id_item,
+                            'serie'=>$last_serie,
+                            'observacion'=>0,
+                            'foto'=>'',
+                            'id_det_ingreso'=>$value->id_ingreso,
+                            'estado'=>1,
+                        ]);
+                    }
+                   
+                }
+            }
+            DB::commit();
+            return back()->with('cargado', 'Ingresado Corrrectamente al Almacén!');
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            return back()->with('carga_fallida', $e);
+        }
+        
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -56,10 +101,6 @@ class IngresoCompraController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //dd($request->detalle_articulos);
-        
-
         try{
 
             DB::beginTransaction();    
