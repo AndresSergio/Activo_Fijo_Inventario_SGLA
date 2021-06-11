@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 $this->cod_suc=1;
 $this->cod_empre=1;
-$this->sucursales=['MONTERO','CENTRAL-SANTA CRUZ','NORTE-INTEGRADO'];
+$this->sucursales=['CENTRAL-SANTA CRUZ','MONTERO','NORTE-INTEGRADO'];
 /* $this->empresa=DB::table('empresa_af')->select('id')->get(); */
 /* dd($empresa); */
 $factory->define(sucursal_af::class, function (Faker $faker) {

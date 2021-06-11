@@ -23,11 +23,12 @@ class IngresoCompraController extends Controller
         //
         $ingreso = IngresoCompra::select('ingreso_af.*','saf.descripcion as descripcionsucursal','raf.nombre as nombreresponsable','raf.apellido as apellidoresponsable')        
         ->join('sucursal_af as saf','saf.id','=','ingreso_af.id_sucursal')
-        ->join('responsable_af as raf','raf.id','=','ingreso_af.id_responsable')
+        ->join('users as raf','raf.id','=','ingreso_af.id_responsable')
         ->join('tipo_ingreso_af as tiaf','tiaf.id','=','ingreso_af.id_tipo_ingr')
         ->where('tiaf.id','=','1')
         ->orderBy('id','DESC')        
         ->paginate(10);
+       /*  dd($ingreso); */
         return view('ingresocompra.index', compact('ingreso'));
     }
 
@@ -134,7 +135,7 @@ class IngresoCompraController extends Controller
         $ingreso = IngresoCompra::select('ingreso_af.*','ra.nombre as nombrerespo', 'tiaf.nombre as nombretipoingreso', 's.descripcion as descripcionsucursal')
             ->join('tipo_ingreso_af as tiaf','tiaf.id','=','ingreso_af.id_tipo_ingr')            
             ->join('sucursal_af as s','s.id','=','ingreso_af.id_sucursal')
-            ->join('responsable_af as ra','ra.id','=','ingreso_af.id_responsable')        
+            ->join('users as ra','ra.id','=','ingreso_af.id_responsable')        
             ->where('ingreso_af.id','=',$id)
             ->first();
 

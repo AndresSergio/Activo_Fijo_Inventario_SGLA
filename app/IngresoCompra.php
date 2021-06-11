@@ -14,7 +14,6 @@ class IngresoCompra extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'numero_doc', 
-        'directorio', 
         'fecha_reg', 
         'tipo_doc',
         'id_tipo_ingr', 
