@@ -17,7 +17,7 @@ class CreateSalidaAfTable extends Migration
             $table->integer('id', true);
             $table->integer('origen_suc')->index('origen_suc');
             $table->integer('destino_suc')->nullable();
-            $table->string('descipcion', 75);
+            $table->string('descripcion', 75);
             $table->integer('id_proveedor')->nullable();
             $table->smallInteger('estado')->default(1);
         });
