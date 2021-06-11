@@ -3,7 +3,7 @@
         <div class="container h-100 justify-content-center align-items-center">
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    <div class="card m-5">
+                    <div class="card m-1">
                         <div class="card-header">Registar Usuario</div>
 
                         <div class="card-body">
@@ -371,6 +371,7 @@ export default {
             this.sector_id=0;
             this.turno_id=0;
             this.area_id=0;
+            this.errores=[]
             this.$v.$reset();
         }
 
