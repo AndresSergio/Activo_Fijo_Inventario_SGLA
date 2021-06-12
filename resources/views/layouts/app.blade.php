@@ -39,11 +39,16 @@
                     
                         <!-- Authentication Links -->
                         @guest
-                             {{-- <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>  --}}                    
+                        <div id="app">
+                            <div class="">
+                                <main class="py"> {{-- no modificar esto es del login --}}
+            
+                                    @yield('content')
+                                </main>     
+                            </div>
+                        </div>              
                         @else
-                            {{-- <li class="nav-item dropdown">
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -59,7 +64,7 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>  --}}   
+                            </li>     
                             <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
                                 <div class="app-header header-shadow">
                                     <div class="app-header__logo">
@@ -762,12 +767,20 @@
                                             <div class="app-sidebar__inner">
                                                 <ul class="vertical-nav-menu">
                                                     <li class="app-sidebar__heading">Menu</li>
+                                                    <li>
+                                                        <a href="/registrar">
+                                                            <i class="metismenu-icon pe-7s-rocket"></i>
+                                                            REGISTRAR USUARIO
+                                                          
+                                                        </a>
+                                                    </li>
                                                     <li class=" ">
                                                         <a href="#">
                                                             <i class="metismenu-icon pe-7s-rocket"></i>
                                                             Maestros
                                                             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                                         </a>
+                                                        
                                                         <ul>
                                                            <!--  <li>
                                                                 <a href="ciudad.index" class="mm-active">
@@ -808,12 +821,12 @@
                                                                     </li>
                                                                 </ul> -->
                                                             </li>
-                                                            <!-- <li>
+                                                            <li>
                                                                 <a href="{{url('/item_af')}}">
                                                                     <i class="metismenu-icon"></i>
                                                                     Items
                                                                 </a>
-                                                            </li> -->
+                                                            </li>
                                                             <li>
                                                                 <a href="{{url('/calificacion_acti_af')}}">
                                                                     <i class="metismenu-icon"></i>
@@ -1006,10 +1019,7 @@
                             </div>                                                                                                                    
                         @endguest                    
                     {{-- </ul> --}}
-        <main class="py"> {{-- no modificar esto es del login --}}
-            
-            @yield('content')
-        </main> 
+        
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- <script type="text/javascript" src="{{ asset('template/vendors/jquery/dist/jquery.min.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('template/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

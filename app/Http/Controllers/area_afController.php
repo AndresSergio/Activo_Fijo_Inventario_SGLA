@@ -33,6 +33,11 @@ class area_afController extends Controller
 
         return view('area_af.index', compact('area_af'));
     }
+    public function get_area()
+    {
+        $area_af = area_af::get();
+        return ['areas'=>$area_af];
+    }
 
     /**
      * Show the form for creating a new resource.

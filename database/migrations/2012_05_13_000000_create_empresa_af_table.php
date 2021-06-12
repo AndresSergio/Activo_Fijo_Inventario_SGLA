@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSucursalAfTable extends Migration
+class CreateEmpresaAfTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateSucursalAfTable extends Migration
      */
     public function up()
     {
-        Schema::create('sucursal_af', function (Blueprint $table) {
+        Schema::create('empresa_af', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->char('codigo', 15)->unique('codigo');
-            $table->string('descripcion', 25);
-            $table->integer('id_empresa')->index('id_empresa');
-            $table->integer('id_departamento')->index('id_departamento');
+            $table->string('nombre', 25);
+            $table->string('nit',15)->unique('nit');
+            $table->string('descripcion', 50);
             $table->smallInteger('estado')->nullable()->default(1);
         });
     }
@@ -30,6 +29,6 @@ class CreateSucursalAfTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sucursal_af');
+        Schema::dropIfExists('empresa_af');
     }
 }

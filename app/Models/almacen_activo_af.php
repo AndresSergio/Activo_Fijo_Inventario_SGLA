@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class sector_af extends Model
+class almacen_activo_af extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'sector_af';
+    protected $table = 'almacen_activo_af';
     public $timestamps = false;
 
     /**
@@ -26,7 +26,7 @@ class sector_af extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'codigo', 'id_area', 'cod_suc', 'nombre', 'descripcion', 'estado'];
+    protected $fillable = ['codigo_item', 'serie','observacion','foto', 'id_det_ingreso', 'estado'];
 
     
 }

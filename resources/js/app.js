@@ -4,11 +4,12 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import Vuelidate from 'vuelidate'
 require('./bootstrap');
-/* import Vuelidate from 'vuelidate' */
 
 window.Vue = require('vue');
-/* Vue.use(Vuelidate) */
+Vue.use(Vuelidate);
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,7 +24,8 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('salidatransf-component', require('./components/salidas_af/salida_aftransfComponent.vue').default);
-Vue.component('ingresocompra-component', require('./components/IngresoCompraComponent.vue').default);
+Vue.component('ingresocompra-component', require('./components/ingresos_af/IngresoCompraComponent.vue').default);
+Vue.component('register-component', require('./components/Auth/registerComponent.vue').default);
 Vue.component('documentonuevo-component', require('./components/DocumentoNuevoComponent.vue').default);
 Vue.component('asignacion-component', require('./components/DocumentoAsignacionComponent.vue').default);
 

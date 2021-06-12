@@ -12,8 +12,8 @@
                             <div class="modal-body">
                                 <div class="h5 modal-title text-center">
                                     <h4 class="mt-2">
-                                        <div>Bienvenido de nuevo</div>
-                                        <span>Inicie sesión en su cuenta a continuación.</span>
+                                        <div>Bienvenido</div>
+                                        <span>Inicie sesión</span>
                                     </h4>
                                 </div>
                                 <form method="POST" action="{{ route('login') }}">

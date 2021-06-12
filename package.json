@@ -24,8 +24,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "vuelidate": "^0.7.6",
         "@ttskch/select2-bootstrap4-theme": "^1.5.2",
-        "select2": "^4.1.0-rc.0"
+        "select2": "^4.1.0-rc.0",
+        "vuelidate": "^0.7.6"
     }
 }
