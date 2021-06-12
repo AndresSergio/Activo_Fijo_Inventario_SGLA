@@ -2,6 +2,6 @@
 
 @section('documentos')
 
-<documentonuevo-component csrf="{{ csrf_token() }}" ecargado="{{$usuid}}"></documentonuevo-component>
+<documentonuevo-component csrf="{{ csrf_token() }}" ecargado="{{ $usuid }}"></documentonuevo-component>
 
 @endsection

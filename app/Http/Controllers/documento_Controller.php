@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\detalle_asig_af;
 use App\documento_af;
 use App\Models\responsable_af;
 use Carbon\Carbon;
@@ -62,7 +63,7 @@ class documento_Controller extends Controller
 
             $documento=new documento_af;
             $documento->id_responsable = $request->area_IDencargado;
-            $documento->id_trabajador = $request->colaborador_ci;
+            $documento->id_trabajador = $request->colaborador_id;
             $documento->id_tipo_doc = $request->id_tipo_doc;
 
             $mytime = Carbon::now('America/La_Paz');
@@ -71,6 +72,16 @@ class documento_Controller extends Controller
             $documento->descripcion = $request->descripcion;
             $documento->directorio = 'pueba.pdf';
             $documento->save();
+
+            $det = $request->detalle_articulos;
+
+            foreach ($det as $key => $value) {
+                $detalleAsignacion = new detalle_asig_af();
+                $detalleAsignacion->observacion = $value['observacion'];
+                $detalleAsignacion->id_almacen_act = $value['itemid'];
+                $detalleAsignacion->id_documento = $documento->id;
+                $detalleAsignacion->save();
+            }
 
             $respuesta = $documento->id;
             
@@ -140,11 +151,12 @@ class documento_Controller extends Controller
         ->join('area_af as AR_af','AR_af.id','=','SE_af.id_area')
         ->where('documento_af.estado','=','1')
         ->where('documento_af.id','=',$id_doc)
-        ->get()
-        ->toArray();
+        ->get();
 
         $usuid = Auth::user();
-        return view('documentos.documento_asignacion', ['solicitud'=>$solicitud,'usuid'=>$usuid]);
-        dd($usuid,$solicitud);
+     
+        //->with('data',['solicitud'=>$solicitud,'usuid'=>$usuid])
+        return view('documentos.documento_asignacion', compact('usuid','solicitud'));
+        //dd($usuid,$solicitud);
     }
 }

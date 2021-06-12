@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('documentos')
-
-$usuid;
-
-<documentasignacion-component csrf="{{ csrf_token() }}" documnt="{{$solicitud}}"></documentasignacion-component>
+{{ $solicitud }}
+<asignacion-component csrf="{{ csrf_token() }}" encargado="{{ $usuid }}" documnt="{{ $solicitud }}"></asignacion-component>
 
 @endsection

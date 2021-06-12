@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header text-center">Solicitud de Activo</div>
+                    <div class="card-header text-center">Asignacion de Activo</div>
 
                     <div class="card-body">
                         <form accept-charset="UTF-8" enctype="multipart/form-data" id="formulario">
@@ -27,7 +27,7 @@
                                         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
                                             <div class="form-group">
                                                 <label for="colaborador">Colaborador</label>
-                                                <input type="text" id="colaborador" name="colaborador"  v-model="colaborador" class="form-control" disabled>
+                                                <input type="text" id="colaborador" name="colaborador"  v-model="doc['renombre']" class="form-control" disabled>
                                             </div>
                                         </div>
                                         <div class="col-lg-6=3 col-sm-3 col-md-3 col-xs-12">
@@ -138,26 +138,27 @@
         data() {
             return{
                 encargado_area:JSON.parse(this.encargado),
+                doc:JSON.parse(this.documnt),
 
                 options_iten:[],
                 id_iten:0,
                 id_tipo_doc:0,
-                colaborador:'',
+                colaborador: '',
                 colaborador_id:'',
                 CI:0,
                 area_nombre:'',
                 area_id:0,
-                sector_nombre:'',
+                sector_nombre: '',
                 sector_id:0,
                 descripcion:'',
                 fecha_entrega:'',
-                //detalle
 
-                //item: JSON.parse(this.it),
+                //detalle
                 iditem:"",
                 articulos:[],
                 observacion: "",
                 cantidad: 1,
+
                 //otras variables
                 errors:[],
                 cont:'0',   
@@ -168,6 +169,10 @@
             }   
         },
         methods: {
+            rellenar_frm:function(){
+                this.colaborador=this.doc.renombre;
+            },
+
             get_itens:function(){
                 let me=this;
                 axios.get('obtener_itens').then(response=>{
